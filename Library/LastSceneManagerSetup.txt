@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/3DForge/Fantasy_Interiors/Villages_&_Towns/Demo Scenes/Forge/Blacksmith's
+    Forge.unity
+  isLoaded: 1
+  isActive: 1
