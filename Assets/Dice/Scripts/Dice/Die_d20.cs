@@ -18,7 +18,7 @@ using UnityEngine;
 using System.Collections;
 
 // Die subclass to expose the D10 side hitVectors
-public class Die_d20 : Die {
+public class Die_d10 : Die {
 
     override protected Vector3 HitVector(int side)
     {

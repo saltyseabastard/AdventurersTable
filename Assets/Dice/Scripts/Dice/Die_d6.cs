@@ -24,12 +24,12 @@ public class Die_d6 : Die {
     {
         switch (side)
         {
-            case 1: return new Vector3(0F, 0F, 1F);
-            case 2: return new Vector3(0F, -1F, 0F);
-            case 3: return new Vector3(-1F, 0F, 0F);
-            case 4: return new Vector3(1F, 0F, 0F);
-            case 5: return new Vector3(0F, 1F, 0F);
-            case 6: return new Vector3(0F, 0F, -1F);
+            case 5: return new Vector3(0F, 0F, 1F); //5
+            case 6: return new Vector3(0F, -1F, 0F); //6
+            case 4: return new Vector3(-1F, 0F, 0F); //4
+            case 3: return new Vector3(1F, 0F, 0F); //3
+            case 1: return new Vector3(0F, 1F, 0F); //1
+            case 2: return new Vector3(0F, 0F, -1F); //2
         }
         return Vector3.zero;
     }
