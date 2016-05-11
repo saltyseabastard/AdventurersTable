@@ -3,13 +3,23 @@ using System.Collections;
 
 public class Pickupable : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
+	Renderer renderer;
+	Material originalMaterial;
+	public Material selectedMaterial;
+
+	void Start()
+	{
+		renderer = gameObject.GetComponent<Renderer> ();
+		originalMaterial = renderer.material;
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnRaycastEnter(GameObject sender)
+	{
+		renderer.material = selectedMaterial;
+	}
+
+	void OnRaycastExit(GameObject sender)
+	{
+		renderer.material = originalMaterial;
 	}
 }

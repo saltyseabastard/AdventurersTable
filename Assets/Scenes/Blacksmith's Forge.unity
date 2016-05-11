@@ -1876,6 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 2100000, guid: 35c5669497cfc42558583920556ddf49, type: 2}
 --- !u!4 &455534311 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c4ac1c807ab2bee43be13a9699f4686a, type: 2}
@@ -2626,6 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 2100000, guid: 95f3ad4ea52134b80918db22167b3dc8, type: 2}
 --- !u!114 &542003465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3221,6 +3223,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 6e68bbc31dd2c60478896fd2cb0a0110, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc4a11fd657943748824d93c611e29ea, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e68bbc31dd2c60478896fd2cb0a0110, type: 2}
   m_IsPrefabParent: 0
@@ -7741,6 +7747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedMaterial: {fileID: 2100000, guid: 9a7ae24051027419f90393808331f506, type: 2}
 --- !u!4 &1589438069 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: b03817d50290c7d4797ec07068326b88, type: 2}

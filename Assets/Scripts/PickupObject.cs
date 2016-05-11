@@ -9,6 +9,10 @@ public class PickupObject : MonoBehaviour {
 	public float smooth;
     public LayerMask layerMask;
     CharacterController controller;
+	GameObject hitObject;
+	int x = Screen.width / 2;
+	int y = Screen.height / 2;
+	GameObject previousObject;
 
     // Use this for initialization
     void Start () {
@@ -19,6 +23,24 @@ public class PickupObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		//ray stuff
+		Vector3 rayVector = new Vector3 (x, y, 0);
+
+		Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(rayVector);
+		RaycastHit hit;
+
+		if (Physics.Raycast (ray, out hit)) {
+			hitObject = hit.collider.gameObject;
+			SendMessageTo (previousObject, "OnRaycastExit");
+			SendMessageTo (hitObject, "OnRaycastEnter");
+			previousObject = hitObject;
+		} else 
+		{
+			SendMessageTo (previousObject, "OnRaycastExit");
+			previousObject = null;
+		}
+
 		if(carrying) {
 			carry(carriedObject);
 			checkDrop();
@@ -26,6 +48,12 @@ public class PickupObject : MonoBehaviour {
 		} else {
 			pickup();
 		}
+	}
+
+	void SendMessageTo(GameObject target, string message)
+	{
+		if (target)
+			target.SendMessage (message, gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 
 	void rotateObject() {
@@ -39,13 +67,8 @@ public class PickupObject : MonoBehaviour {
 
 	void pickup() {
 		if(Input.GetKeyDown (KeyCode.E)) {
-			int x = Screen.width / 2;
-			int y = Screen.height / 2;
-
-			Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
-			RaycastHit hit;
-			if(Physics.Raycast(ray, out hit, layerMask)) {
-				Pickupable p = hit.collider.GetComponent<Pickupable>();
+			
+				Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
 				if(p != null) {
 					carrying = true;
 					carriedObject = p.gameObject;
@@ -53,7 +76,7 @@ public class PickupObject : MonoBehaviour {
 					p.gameObject.GetComponent<Rigidbody>().useGravity = false;
 				}
 			}
-		}
+
 	}
 
 	void checkDrop() {
