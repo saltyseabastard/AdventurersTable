@@ -7,6 +7,7 @@ public class PickupObject : MonoBehaviour {
 	GameObject carriedObject;
 	public float distance;
 	public float smooth;
+    public LayerMask layerMask;
     CharacterController controller;
 
     // Use this for initialization
@@ -43,7 +44,7 @@ public class PickupObject : MonoBehaviour {
 
 			Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(new Vector3(x,y));
 			RaycastHit hit;
-			if(Physics.Raycast(ray, out hit)) {
+			if(Physics.Raycast(ray, out hit, layerMask)) {
 				Pickupable p = hit.collider.GetComponent<Pickupable>();
 				if(p != null) {
 					carrying = true;
@@ -64,18 +65,18 @@ public class PickupObject : MonoBehaviour {
 	void dropObject() {
 
         //get force from velocity
-        Vector3 horizontalVelocity = controller.velocity;
-        horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
-        float horizontalSpeed = horizontalVelocity.magnitude;
-        float verticalSpeed = controller.velocity.y;
-        float overallSpeed = controller.velocity.magnitude;
+        //Vector3 horizontalVelocity = controller.velocity;
+        //horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
+        //float horizontalSpeed = horizontalVelocity.magnitude;
+        //float verticalSpeed = controller.velocity.y;
+        //float overallSpeed = controller.velocity.magnitude;
 
 
 
         carrying = false;
         Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody>();
         rb.useGravity = true;
-        rb.AddForce(horizontalVelocity * overallSpeed/5, ForceMode.Impulse);
+        rb.AddForce(transform.forward * Random.Range(3.5f, 5.5f), ForceMode.Impulse);
         
 		carriedObject = null;
 
