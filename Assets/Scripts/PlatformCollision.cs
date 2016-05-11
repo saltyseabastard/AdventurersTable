@@ -25,7 +25,7 @@ public class PlatformCollision : MonoBehaviour
             Vector3 P2 = transform.TransformPoint(verts[triangles[i - 1]]);
             Vector3 P3 = transform.TransformPoint(verts[triangles[i]]);
             Vector3 faceNormal = Vector3.Cross(P3 - P2, P1 - P2).normalized;
-            if (Vector3.Dot(faceNormal, Vector3.up) <= cos)
+            if (Vector3.Dot(faceNormal, Vector3.back) <= cos)
             {
                 triangles.RemoveAt(i);
                 triangles.RemoveAt(i - 1);
