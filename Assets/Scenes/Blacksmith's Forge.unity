@@ -12683,6 +12683,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb11f23ba920ac4cb7697387fc71b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaterialRef1: {fileID: 2100000, guid: 39cace2863926444a9a78daa8ae26413, type: 2}
+  MaterialRef2: {fileID: 0}
 --- !u!4 &680506627 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 9e4934a98a6565342b4d756769d70c88, type: 2}
@@ -15109,6 +15111,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 819096234}
+  - 45: {fileID: 819096235}
   m_Layer: 0
   m_Name: Forest
   m_TagString: Untagged
@@ -15133,6 +15136,14 @@ Transform:
   - {fileID: 260274620}
   m_Father: {fileID: 675773499}
   m_RootOrder: 3
+--- !u!45 &819096235
+Skybox:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 819096233}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 2100000, guid: 39cace2863926444a9a78daa8ae26413, type: 2}
 --- !u!1001 &819534626
 Prefab:
   m_ObjectHideFlags: 0
