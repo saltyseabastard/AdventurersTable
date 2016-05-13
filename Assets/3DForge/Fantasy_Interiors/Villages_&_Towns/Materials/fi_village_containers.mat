@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 9f7f663b360c5e84eab899f919c3e414, type: 3}
+          m_Texture: {fileID: 2800000, guid: e4eedd6ab9aaf6c499b3c18a8169237f, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: e48860d961c9d8e4399c27d84ce638a3, type: 3}
+          m_Texture: {fileID: 2800000, guid: 17440a5f997b4a84389becd7110d0a47, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -47,7 +47,7 @@ Material:
         first:
           name: _OcclusionMap
         second:
-          m_Texture: {fileID: 2800000, guid: 06295e6cfbdac05429d660612bc507c7, type: 3}
+          m_Texture: {fileID: 2800000, guid: 56b34e2119b48fc4284e6855759bd4e5, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
