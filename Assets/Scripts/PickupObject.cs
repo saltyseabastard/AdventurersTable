@@ -8,7 +8,7 @@ public class PickupObject : MonoBehaviour {
 	public float distance;
 	public float smooth;
     public LayerMask layerMask;
-    CharacterController controller;
+    //CharacterController controller;
 	GameObject hitObject;
 	int x = Screen.width / 2;
 	int y = Screen.height / 2;
@@ -18,7 +18,7 @@ public class PickupObject : MonoBehaviour {
     void Start () {
 		mainCamera = GameObject.FindWithTag("MainCamera");
         //rigidBody = GetComponent<Rigidbody>();
-        controller = GetComponent<CharacterController>();
+//        controller = GetComponent<CharacterController>();
     }
 	
 	// Update is called once per frame
@@ -94,12 +94,12 @@ public class PickupObject : MonoBehaviour {
         //float verticalSpeed = controller.velocity.y;
         //float overallSpeed = controller.velocity.magnitude;
 
-
-
         carrying = false;
         Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody>();
         rb.useGravity = true;
         rb.AddForce(transform.forward * Random.Range(3.5f, 5.5f), ForceMode.Impulse);
+		rb.AddTorque (new Vector3(Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
+			ForceMode.Impulse);
         
 		carriedObject = null;
 
