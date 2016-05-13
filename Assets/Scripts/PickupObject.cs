@@ -4,7 +4,7 @@ using System.Collections;
 public class PickupObject : MonoBehaviour {
 	GameObject mainCamera;
 	bool carrying;
-	GameObject carriedObject;
+	ArrayList carriedObjects = new ArrayList();
 	public float distance;
 	public float smooth;
     public LayerMask layerMask;
@@ -15,10 +15,8 @@ public class PickupObject : MonoBehaviour {
 	GameObject previousObject;
 
     // Use this for initialization
-    void Start () {
+	void Start () {
 		mainCamera = GameObject.FindWithTag("MainCamera");
-        //rigidBody = GetComponent<Rigidbody>();
-//        controller = GetComponent<CharacterController>();
     }
 	
 	// Update is called once per frame
@@ -42,9 +40,8 @@ public class PickupObject : MonoBehaviour {
 		}
 
 		if(carrying) {
-			carry(carriedObject);
+			carry(carriedObjects);
 			checkDrop();
-			//rotateObject();
 		} else {
 			pickup();
 		}
@@ -57,26 +54,32 @@ public class PickupObject : MonoBehaviour {
 	}
 
 	void rotateObject() {
-		carriedObject.transform.Rotate(5,10,15);
+		foreach (GameObject o in carriedObjects)
+		{
+			o.transform.Rotate (5, 10, 15);
+		}
 	}
 
-	void carry(GameObject o) {
-		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
-		o.transform.rotation = Quaternion.identity;
+	void carry(ArrayList handful)
+	{
+		foreach(GameObject o in handful)
+		{
+			o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+			o.transform.rotation = Quaternion.identity;
+		}
 	}
 
 	void pickup() {
 		if(Input.GetKeyDown (KeyCode.E)) {
 			
-				Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
-				if(p != null) {
-					carrying = true;
-					carriedObject = p.gameObject;
-					//p.gameObject.rigidbody.isKinematic = true;
-					p.gameObject.GetComponent<Rigidbody>().useGravity = false;
-				}
+			Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
+			if(p != null) {
+				carrying = true;
+				carriedObjects.Add(p.gameObject);
+				//p.gameObject.rigidbody.isKinematic = true;
+				p.gameObject.GetComponent<Rigidbody>().useGravity = false;
 			}
-
+		}
 	}
 
 	void checkDrop() {
@@ -87,7 +90,7 @@ public class PickupObject : MonoBehaviour {
 
 	void dropObject() {
 
-        //get force from velocity
+        //SAVE FOR VIVE CONTROLLER
         //Vector3 horizontalVelocity = controller.velocity;
         //horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
         //float horizontalSpeed = horizontalVelocity.magnitude;
@@ -95,13 +98,15 @@ public class PickupObject : MonoBehaviour {
         //float overallSpeed = controller.velocity.magnitude;
 
         carrying = false;
-        Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody>();
-        rb.useGravity = true;
-        rb.AddForce(transform.forward * Random.Range(3.5f, 5.5f), ForceMode.Impulse);
-		rb.AddTorque (new Vector3(Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
-			ForceMode.Impulse);
-        
-		carriedObject = null;
+		foreach (GameObject o in carriedObjects)
+		{
+			Rigidbody rb = o.gameObject.GetComponent<Rigidbody> ();
+			rb.useGravity = true;
+			rb.AddForce (transform.forward * Random.Range (3.5f, 5.5f), ForceMode.Impulse);
+			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
+				ForceMode.Impulse);
+		}
+		carriedObjects = null;
 
 	}
 }

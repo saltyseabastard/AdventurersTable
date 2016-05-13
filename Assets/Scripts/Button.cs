@@ -5,11 +5,17 @@ public class Button : MonoBehaviour {
 
 	public enum ButtonType
 	{
-		Dice,
-		Environment
+		Environment_forest,
+		Enviromnent_tavern,
+		d4, 
+		d6,
+		d8,
+		d10,
+		d12,
+		d20
+
 	}
 
 	public ButtonType buttonType;
-	public int diceSides; 
 
 }

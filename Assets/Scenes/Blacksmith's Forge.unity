@@ -1691,6 +1691,7 @@ GameObject:
   - 33: {fileID: 428617035}
   - 65: {fileID: 428617034}
   - 23: {fileID: 428617033}
+  - 114: {fileID: 428617036}
   m_Layer: 0
   m_Name: Button 2
   m_TagString: Untagged
@@ -1755,6 +1756,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 428617031}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &428617036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428617031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 3
 --- !u!4 &431942308 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: d450e5fb84b31c748989a29ecb3617b0, type: 2}
@@ -2645,6 +2658,7 @@ GameObject:
   - 33: {fileID: 518523967}
   - 65: {fileID: 518523966}
   - 23: {fileID: 518523965}
+  - 114: {fileID: 518523968}
   m_Layer: 0
   m_Name: Button 3
   m_TagString: Untagged
@@ -2709,6 +2723,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 518523963}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &518523968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 518523963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 4
 --- !u!1 &537568680
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,6 +4138,7 @@ GameObject:
   - 33: {fileID: 847613041}
   - 65: {fileID: 847613040}
   - 23: {fileID: 847613039}
+  - 114: {fileID: 847613042}
   m_Layer: 0
   m_Name: Pallete
   m_TagString: Untagged
@@ -4185,6 +4212,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 847613037}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &847613042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 847613037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c549ff39d4a2d4e3aaed933bbc37e2e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  face1Buttons:
+  - {fileID: 1038551662}
+  - {fileID: 428617036}
+  - {fileID: 518523968}
+  - {fileID: 1105772901}
+  - {fileID: 1783148398}
+  - {fileID: 1481496732}
+  face2Buttons: []
+  face3Buttons: []
+  face4Buttons: []
+  dicePrefabs:
+  - {fileID: 179252, guid: dc240f10232ca4791a20f4e0399b23d1, type: 2}
+  - {fileID: 140780, guid: 06dbe27adda364684ae46bd42b24d239, type: 2}
+  - {fileID: 172386, guid: 3bceeccb2393847429dd403490e5c3da, type: 2}
+  - {fileID: 127562, guid: ffbfce73060d24d5c97c7eb3ba3db6ea, type: 2}
+  - {fileID: 134832, guid: 6180f2b9d6b6c4d23b3521cc47c9acb6, type: 2}
+  - {fileID: 102084, guid: 89fe5b52714864021b07d908560ac5f6, type: 2}
 --- !u!4 &861153150 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c57a52cd057e2f648a07690cd561f5cb, type: 2}
@@ -4888,8 +4943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 0
-  diceSides: 4
+  buttonType: 2
 --- !u!1 &1043977402
 GameObject:
   m_ObjectHideFlags: 0
@@ -5558,6 +5612,7 @@ GameObject:
   - 33: {fileID: 1105772900}
   - 65: {fileID: 1105772899}
   - 23: {fileID: 1105772898}
+  - 114: {fileID: 1105772901}
   m_Layer: 0
   m_Name: Button 4
   m_TagString: Untagged
@@ -5622,6 +5677,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105772896}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1105772901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1105772896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 5
 --- !u!4 &1106935892 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 594214fa1d447b947b86a6263f5b8e3c, type: 2}
@@ -7398,6 +7465,7 @@ GameObject:
   - 33: {fileID: 1481496731}
   - 65: {fileID: 1481496730}
   - 23: {fileID: 1481496729}
+  - 114: {fileID: 1481496732}
   m_Layer: 0
   m_Name: Button 6
   m_TagString: Untagged
@@ -7462,6 +7530,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1481496727}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1481496732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1481496727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 7
 --- !u!1001 &1490567884
 Prefab:
   m_ObjectHideFlags: 0
@@ -9181,6 +9261,7 @@ GameObject:
   - 33: {fileID: 1783148397}
   - 65: {fileID: 1783148396}
   - 23: {fileID: 1783148395}
+  - 114: {fileID: 1783148398}
   m_Layer: 0
   m_Name: Button 5
   m_TagString: Untagged
@@ -9245,6 +9326,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1783148393}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1783148398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1783148393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonType: 6
 --- !u!4 &1783616941 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: c3e9e64ea3420884ca5ed70789bdfe0c, type: 2}
