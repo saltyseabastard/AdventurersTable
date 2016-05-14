@@ -15,7 +15,7 @@ public class LoadEnvironments : MonoBehaviour
         {
             go.SetActive(false);
         }
-        environ[1].SetActive(true);
+        environ[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -47,15 +47,6 @@ public class LoadEnvironments : MonoBehaviour
             }
             environ[2].SetActive(true);
             RenderSettings.skybox = MaterialRef[2];
-        }
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            foreach (GameObject go in environ)
-            {
-                go.SetActive(false);
-            }
-            environ[3].SetActive(true);
-            RenderSettings.skybox = MaterialRef[3];
         }
     }
 }
