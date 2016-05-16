@@ -138,7 +138,6 @@ GameObject:
   - 4: {fileID: 414310}
   - 23: {fileID: 2394652}
   - 102: {fileID: 10243532}
-  - 114: {fileID: 11474322}
   m_Layer: 0
   m_Name: Number display
   m_TagString: Untagged
@@ -411,18 +410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedMaterial: {fileID: 2100000, guid: c426e303fd02e4c8e962f186c8767db5, type: 2}
---- !u!114 &11474322
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42bf455f747bb4c89b8fb01865cfc1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainCamera: {fileID: 0}
 --- !u!114 &11493128
 MonoBehaviour:
   m_ObjectHideFlags: 1
