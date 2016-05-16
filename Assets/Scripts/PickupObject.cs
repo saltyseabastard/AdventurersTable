@@ -13,6 +13,7 @@ public class PickupObject : MonoBehaviour {
 	int x = Screen.width / 2;
 	int y = Screen.height / 2;
 	GameObject previousObject;
+	public GameObject blackHole;
 
 	// Use this for initialization
 	void Start () {
@@ -41,14 +42,15 @@ public class PickupObject : MonoBehaviour {
 			previousObject = null;
 		}
 
-		if(carrying) {
-
+		if(carrying) 
+		{
 			carry (carriedObjects);
 			checkDrop();
 		}
 
 		//rotateObject();
-	 	else {
+	 	else 
+		{
 			pickup();
 		}
 	}
@@ -65,23 +67,25 @@ public class PickupObject : MonoBehaviour {
 
 	void carry(ArrayList objects) 
 	{
-		foreach (GameObject go in carriedObjects)
-		{
-			go.transform.position = Vector3.Lerp (go.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
-			go.transform.rotation = Quaternion.identity;
-		}
+//		GameObject go = (GameObject) objects[0];
+//		if (!go.GetComponent<Gravity> ())
+//		{
+//			go.AddComponent<Gravity> ();
+//		}
+
+
+		blackHole.SetActive (true);
+
+		//go.transform.position = Vector3.Lerp (go.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+		//go.transform.rotation = Quaternion.identity;
+
 	}
 
 	void pickup() 
 	{
 		if(Input.GetKeyDown (KeyCode.E)) 
 		{
-			Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
-			if(p != null) {
-				carrying = true;
-				carriedObjects.Add(p.gameObject);
-				p.gameObject.GetComponent<Rigidbody>().useGravity = false;
-			}
+			AddObjectToHand (hitObject);
 		}
 	}
 
@@ -107,12 +111,31 @@ public class PickupObject : MonoBehaviour {
 		{
 			GameObject go = (GameObject) carriedObjects [i];
 			Rigidbody rb = go.GetComponent<Rigidbody> ();
+
+			//remove black hole gravity if it exists
+//			if (go.GetComponent<Gravity> ())
+//			{
+//				Gravity gravity = go.GetComponent<Gravity> ();
+//				Destroy (gravity);
+//			}
+			blackHole.SetActive(false);
+			go.transform.parent = null;
 			rb.useGravity = true;
 			rb.AddForce (transform.forward * Random.Range (3.5f, 5.5f), ForceMode.Impulse);
 			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
 				ForceMode.Impulse);
 
 			carriedObjects.Remove (carriedObjects[i]);
+		}
+	}
+
+	public void AddObjectToHand(GameObject go)
+	{
+		Pickupable p = go.GetComponent<Collider>().GetComponent<Pickupable>();
+		if(p != null) {
+			carrying = true;
+			carriedObjects.Add(p.gameObject);
+			p.gameObject.GetComponent<Rigidbody>().useGravity = false;
 		}
 	}
 }
