@@ -7,20 +7,20 @@ public class PickupObject : MonoBehaviour {
 	ArrayList carriedObjects = new ArrayList ();
 	public float distance;
 	public float smooth;
-    public LayerMask layerMask;
-    //CharacterController controller;
+	public LayerMask layerMask;
+	//CharacterController controller;
 	GameObject hitObject;
 	int x = Screen.width / 2;
 	int y = Screen.height / 2;
 	GameObject previousObject;
 
-    // Use this for initialization
-    void Start () {
+	// Use this for initialization
+	void Start () {
 		mainCamera = GameObject.FindWithTag("MainCamera");
-        //rigidBody = GetComponent<Rigidbody>();
-//        controller = GetComponent<CharacterController>();
-    }
-	
+		//rigidBody = GetComponent<Rigidbody>();
+		//        controller = GetComponent<CharacterController>();
+	}
+
 	// Update is called once per frame
 	void Update () {
 
@@ -42,12 +42,13 @@ public class PickupObject : MonoBehaviour {
 		}
 
 		if(carrying) {
-			
-				carry (carriedObjects);
-			}
+
+			carry (carriedObjects);
 			checkDrop();
-			//rotateObject();
-		} else {
+		}
+
+		//rotateObject();
+	 	else {
 			pickup();
 		}
 	}
@@ -59,15 +60,15 @@ public class PickupObject : MonoBehaviour {
 	}
 
 	void rotateObject() {
-		carriedObject.transform.Rotate(5,10,15);
+		//carriedObject.transform.Rotate(5,10,15);
 	}
 
 	void carry(ArrayList objects) 
 	{
 		foreach (GameObject go in carriedObjects)
 		{
-			objects.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
-			objects.transform.rotation = Quaternion.identity;
+			go.transform.position = Vector3.Lerp (go.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+			go.transform.rotation = Quaternion.identity;
 		}
 	}
 
@@ -75,21 +76,18 @@ public class PickupObject : MonoBehaviour {
 	{
 		if(Input.GetKeyDown (KeyCode.E)) 
 		{
-			
-				Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
-				if(p != null) {
-					carrying = true;
-					carriedObject = p.gameObject;
-					//p.gameObject.rigidbody.isKinematic = true;
-					p.gameObject.GetComponent<Rigidbody>().useGravity = false;
-				}
+			Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
+			if(p != null) {
+				carrying = true;
+				carriedObjects.Add(p.gameObject);
+				p.gameObject.GetComponent<Rigidbody>().useGravity = false;
 			}
-
+		}
 	}
 
 	void checkDrop() 
 	{
-		if(Input.GetKeyDown (KeyCode.R)) {
+		if(Input.GetKeyDown (KeyCode.R) && carriedObjects.Count > 0) {
 			dropObject();
 		}
 	}
@@ -97,24 +95,24 @@ public class PickupObject : MonoBehaviour {
 	void dropObject() 
 	{
 
-        //get force from velocity
-        //Vector3 horizontalVelocity = controller.velocity;
-        //horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
-        //float horizontalSpeed = horizontalVelocity.magnitude;
-        //float verticalSpeed = controller.velocity.y;
-        //float overallSpeed = controller.velocity.magnitude;
+		//get force from velocity - SAVE THIS FOR VIVE CONTROLLERS
+		//Vector3 horizontalVelocity = controller.velocity;
+		//horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
+		//float horizontalSpeed = horizontalVelocity.magnitude;
+		//float verticalSpeed = controller.velocity.y;
+		//float overallSpeed = controller.velocity.magnitude;
 
-        carrying = false;
-		foreach (GameObject go in carriedObject)
+		carrying = false;
+		for (int i = carriedObjects.Count-1; i >= 0; i--)
 		{
-			Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody> ();
+			GameObject go = (GameObject) carriedObjects [i];
+			Rigidbody rb = go.GetComponent<Rigidbody> ();
 			rb.useGravity = true;
 			rb.AddForce (transform.forward * Random.Range (3.5f, 5.5f), ForceMode.Impulse);
 			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
 				ForceMode.Impulse);
-		}
-        
-		carriedObject = null;
 
+			carriedObjects.Remove (carriedObjects[i]);
+		}
 	}
 }
