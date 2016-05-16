@@ -4,7 +4,7 @@ using System.Collections;
 public class PickupObject : MonoBehaviour {
 	GameObject mainCamera;
 	bool carrying;
-	GameObject carriedObject;
+	ArrayList carriedObjects = new ArrayList ();
 	public float distance;
 	public float smooth;
     public LayerMask layerMask;
@@ -42,7 +42,9 @@ public class PickupObject : MonoBehaviour {
 		}
 
 		if(carrying) {
-			carry(carriedObject);
+			
+				carry (carriedObjects);
+			}
 			checkDrop();
 			//rotateObject();
 		} else {
@@ -60,13 +62,19 @@ public class PickupObject : MonoBehaviour {
 		carriedObject.transform.Rotate(5,10,15);
 	}
 
-	void carry(GameObject o) {
-		o.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
-		o.transform.rotation = Quaternion.identity;
+	void carry(ArrayList objects) 
+	{
+		foreach (GameObject go in carriedObjects)
+		{
+			objects.transform.position = Vector3.Lerp (o.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
+			objects.transform.rotation = Quaternion.identity;
+		}
 	}
 
-	void pickup() {
-		if(Input.GetKeyDown (KeyCode.E)) {
+	void pickup() 
+	{
+		if(Input.GetKeyDown (KeyCode.E)) 
+		{
 			
 				Pickupable p = hitObject.GetComponent<Collider>().GetComponent<Pickupable>();
 				if(p != null) {
@@ -79,13 +87,15 @@ public class PickupObject : MonoBehaviour {
 
 	}
 
-	void checkDrop() {
-		if(Input.GetKeyDown (KeyCode.E)) {
+	void checkDrop() 
+	{
+		if(Input.GetKeyDown (KeyCode.R)) {
 			dropObject();
 		}
 	}
 
-	void dropObject() {
+	void dropObject() 
+	{
 
         //get force from velocity
         //Vector3 horizontalVelocity = controller.velocity;
@@ -95,11 +105,14 @@ public class PickupObject : MonoBehaviour {
         //float overallSpeed = controller.velocity.magnitude;
 
         carrying = false;
-        Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody>();
-        rb.useGravity = true;
-        rb.AddForce(transform.forward * Random.Range(3.5f, 5.5f), ForceMode.Impulse);
-		rb.AddTorque (new Vector3(Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
-			ForceMode.Impulse);
+		foreach (GameObject go in carriedObject)
+		{
+			Rigidbody rb = carriedObject.gameObject.GetComponent<Rigidbody> ();
+			rb.useGravity = true;
+			rb.AddForce (transform.forward * Random.Range (3.5f, 5.5f), ForceMode.Impulse);
+			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
+				ForceMode.Impulse);
+		}
         
 		carriedObject = null;
 
