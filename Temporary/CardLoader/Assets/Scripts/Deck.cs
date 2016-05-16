@@ -8,11 +8,11 @@ namespace DeckLoading
 {
     public class Deck
     {
-        class Card
+        class CardInfo
         {
             public string path;
             public bool isInDeck;
-            public Card (string cardPath, bool cardIsInDeck)
+            public CardInfo (string cardPath, bool cardIsInDeck)
             {
                 path = cardPath;
                 isInDeck = cardIsInDeck;
@@ -31,7 +31,7 @@ namespace DeckLoading
         private Dictionary<string, Texture2D> backPortraitCards = new Dictionary<string, Texture2D> ();
         private Dictionary<string, Texture2D> backLandscapeCards = new Dictionary<string, Texture2D> ();
 
-        private List<Card> allCards = new List<Card> ();
+        private List<CardInfo> allCards = new List<CardInfo> ();
         private static System.Random rng = new System.Random();
 
         public Deck (DirectoryInfo rootDeckDirectory)
@@ -49,25 +49,26 @@ namespace DeckLoading
         public Texture2D GetNextCard()
         {
             Debug.Log ("Remaining cards in deck: " + Count ());
-            foreach (var card in allCards)
+            foreach (var cardInfo in allCards)
             {
-                if (card.isInDeck == true)
+                if (cardInfo.isInDeck == true)
                 {
                     // card is in the deck, so 'draw it'
-                    card.isInDeck = false;
+                    cardInfo.isInDeck = false;
                     Texture2D texture;
-                    if (frontPortraitCards.ContainsKey (card.path))
+                    if (frontPortraitCards.ContainsKey (cardInfo.path))
                     {
-                        texture = frontPortraitCards [card.path];
-                    } else if (frontLandscapeCards.ContainsKey (card.path))
+                        texture = frontPortraitCards [cardInfo.path];
+                    } else if (frontLandscapeCards.ContainsKey (cardInfo.path))
                     {
-                        texture = frontLandscapeCards [card.path];
+                        texture = frontLandscapeCards [cardInfo.path];
                     }
                     else
                     {
+                        Debug.Log ("Something bad happened here.");
                         return null;
                     }
-                    // return the first card found
+                    // use the first card found
                     return texture;
                 }
             }
@@ -75,6 +76,11 @@ namespace DeckLoading
             Debug.Log ("All cards have been drawn, shuffling the deck.");
             ShuffleCards ();
             return GetNextCard ();
+        }
+
+        public Texture2D GetCardBack()
+        {
+            return backPortraitCards.FirstOrDefault ().Value;
         }
 
         public void ShuffleCards()
@@ -119,11 +125,11 @@ namespace DeckLoading
 
             foreach (var card in frontPortraitCards)
             {
-                allCards.Add (new Card (card.Key, true));
+                allCards.Add (new CardInfo (card.Key, true));
             }
             foreach (var card in frontLandscapeCards)
             {
-                allCards.Add (new Card(card.Key, true));
+                allCards.Add (new CardInfo(card.Key, true));
             }
 
             ShuffleCards ();
@@ -182,7 +188,5 @@ namespace DeckLoading
                 }
             }
         }
-
-
     }
 }

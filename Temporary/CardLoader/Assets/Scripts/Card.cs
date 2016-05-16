@@ -24,4 +24,9 @@ public class Card : MonoBehaviour
     {
         front.UpdateImage (newImage);
     }
+
+    public void UpdateBack(Texture2D newImage)
+    {
+        back.UpdateImage (newImage);
+    }
 }

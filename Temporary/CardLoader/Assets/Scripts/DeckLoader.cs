@@ -75,7 +75,7 @@ public class DeckLoader : MonoBehaviour
         cardObj = (GameObject)Instantiate (cardDeckPrefab, new Vector3 (0, 2, 0), Quaternion.identity);
         //created.SetActive (false);
         // rotate x -90 to face camera
-        cardObj.transform.Rotate(-90, 0, 0);
+        cardObj.transform.Rotate(90, 0, 180);
         DrawNextCard ();
         deckCreated = true;
     }
@@ -84,5 +84,6 @@ public class DeckLoader : MonoBehaviour
     {
         var card = cardObj.GetComponent<Card> ();
         card.UpdateFront (activeDeck.GetNextCard ());
+        card.UpdateBack(activeDeck.GetCardBack());
     }
 }
