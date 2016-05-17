@@ -4,18 +4,17 @@ using System.Collections;
 public class LoadEnvironments : MonoBehaviour
 {
 
-    private GameObject environment;
-    public GameObject[] environ;
+    public string[] environments;
     public Material[] MaterialRef;
+    public GameObject instance;
+    public Vector3[] originalPos;
 
     void Start()
     {
-
-        foreach (GameObject go in environ)
-        {
-            go.SetActive(false);
-        }
-        environ[0].SetActive(true);
+        instance = Instantiate(Resources.Load(environments[0], typeof(GameObject))) as GameObject;
+        instance.transform.parent = transform;
+        instance.transform.localPosition = originalPos[0];
+        instance.SetActive(true);
     }
 
     // Update is called once per frame
@@ -23,30 +22,30 @@ public class LoadEnvironments : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            foreach (GameObject go in environ)
-            {
-                go.SetActive(false);
-            }
-            environ[0].SetActive(true);
+            Destroy(instance);
             RenderSettings.skybox = MaterialRef[0];
+            instance = Instantiate(Resources.Load(environments[0], typeof(GameObject))) as GameObject;
+            instance.transform.parent = transform;
+            instance.transform.localPosition = originalPos[0];
+            instance.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.X))
         {
-            foreach (GameObject go in environ)
-            {
-                go.SetActive(false);
-            }
-            environ[1].SetActive(true);
+            Destroy(instance);
             RenderSettings.skybox = MaterialRef[1];
+            instance = Instantiate(Resources.Load(environments[1], typeof(GameObject))) as GameObject;
+            instance.transform.parent = transform;
+            instance.transform.localPosition = originalPos[1];
+            instance.SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
-            foreach (GameObject go in environ)
-            {
-                go.SetActive(false);
-            }
-            environ[2].SetActive(true);
+            Destroy(instance);
             RenderSettings.skybox = MaterialRef[2];
+            instance = Instantiate(Resources.Load(environments[2], typeof(GameObject))) as GameObject;
+            instance.transform.parent = transform;
+            instance.transform.localPosition = originalPos[2];
+            instance.SetActive(true);
         }
     }
 }
