@@ -28,12 +28,8 @@ public class LoadExternalMap : MonoBehaviour {
 			path +=	"/../Maps/";
 		}
 
-		print (path);
-
 		WWW www = new WWW("file://" + path + filename);
 		yield return www;
-
-		print (www.bytes.Length);
 
 		Texture2D texture = new Texture2D(2, 2);
 		texture.LoadImage(www.bytes);
