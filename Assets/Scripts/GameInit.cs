@@ -15,38 +15,36 @@ public class GameInit : MonoBehaviour {
     public GameObject fpsController;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
+
         if (UnityEngine.VR.VRDevice.isPresent)
             vrStatus = VRStatus.Vive;
         else
             vrStatus = VRStatus.None;
 
-        Debug.Log("Connected VR Device: " + vrStatus);
+        InvokeRepeating("CheckForVive", 0, 1);
 
         //Enable/disable VR Camera rig (defaults to PC)
-        switch (vrStatus)
-        {
-            case VRStatus.Vive :
-                viveCameraRig.SetActive(true);
-                fpsController.SetActive(false);
-                break;
+        //switch (vrStatus)
+        //{
+        //    case VRStatus.Vive :
+        //        viveCameraRig.SetActive(true);
+        //        fpsController.SetActive(false);
+        //        break;
 
-            case VRStatus.None:
-                viveCameraRig.SetActive(false);
-                fpsController.SetActive(true);
-                break;
-
-            default:
-                viveCameraRig.SetActive(false);
-                fpsController.SetActive(true);
-                break;
-        }
+        //    case VRStatus.None:
+        //        viveCameraRig.SetActive(false);
+        //        fpsController.SetActive(true);
+        //        break;
+        //}
         
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    void CheckForVive()
+    {
+        Debug.Log("Connected VR Device: " + vrStatus + " UE found " + UnityEngine.VR.VRSettings.loadedDevice);
+    }
+
 }
