@@ -112,12 +112,6 @@ public class PickupObject : MonoBehaviour {
 			GameObject go = (GameObject) carriedObjects [i];
 			Rigidbody rb = go.GetComponent<Rigidbody> ();
 
-			//remove black hole gravity if it exists
-//			if (go.GetComponent<Gravity> ())
-//			{
-//				Gravity gravity = go.GetComponent<Gravity> ();
-//				Destroy (gravity);
-//			}
 			blackHole.SetActive(false);
 			go.transform.parent = null;
 			rb.useGravity = true;

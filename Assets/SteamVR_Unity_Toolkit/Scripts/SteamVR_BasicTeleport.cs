@@ -108,7 +108,7 @@ public class SteamVR_BasicTeleport : MonoBehaviour {
             }
             else
             {
-                Debug.LogError("A GameObject must exist with a SteamVR_WorldPointer script attached to it");
+                Debug.LogWarning("A GameObject must exist with a SteamVR_WorldPointer script attached to it");
                 return;
             }
         }
