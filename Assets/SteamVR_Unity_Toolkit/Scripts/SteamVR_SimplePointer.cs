@@ -25,7 +25,7 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
     private GameObject pointerHolder;
     private GameObject pointer;
     private GameObject pointerTip;
-    private Vector3 pointerTipScale = new Vector3(0.05f, 0.05f, 0.05f);
+    private Vector3 pointerTipScale = new Vector3(0.025f, 0.025f, 0.025f);
 
     // Use this for initialization
     protected override void Start () {

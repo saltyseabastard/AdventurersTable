@@ -1,49 +1,81 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
-public class Pallette : MonoBehaviour {
+public class Palette : MonoBehaviour {
+
+    public enum DiceSides
+    {
+        d4,
+        d6,
+        d8,
+        d10,
+        d12,
+        d20
+    }
 
 	public LoadEnvironments envLoader;
-	public GameObject[] diceButtons;
+	public Button[] diceButtons;
 	public GameObject[] dicePrefabs;
 
 	//the pickupObject script on the character controller
 	public PickupObject pickupObject;
 	int faceUp = 0;
 
-	void SpawnDice()
+    private UnityAction buttonListener;
+    private DiceSpawnEvent mDiceSpawnEvent;
+
+    [System.Serializable]
+    public class DiceSpawnEvent : UnityEvent<DiceSides>
+    {
+    }
+
+    void Awake()
+    {
+        if (mDiceSpawnEvent == null)
+            mDiceSpawnEvent = new DiceSpawnEvent();
+
+        //assign the event instance to the buttons that will use it
+        foreach (Button btn in diceButtons)
+        {
+            btn.DiceSpawnEvent = mDiceSpawnEvent;
+        }
+    }
+
+    void SpawnSingleDie(DiceSides sides)
+    {
+        Debug.Log("SpawnSingleDie triggered");
+        GameObject die = (GameObject)Instantiate(dicePrefabs[(int)sides], transform.position, transform.rotation);
+        pickupObject.AddObjectToHand(die);
+    }
+
+    void SpawnDiceFromKeyboard()
 	{
 		if(Input.GetKeyDown (KeyCode.Alpha1))
 		{
-			GameObject d4 = (GameObject) Instantiate(dicePrefabs[0], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d4);
+            SpawnSingleDie(DiceSides.d4);
 			//TODO: animate button
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha2))
 		{
-			GameObject d6 = (GameObject) Instantiate(dicePrefabs[1], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d6);
+            SpawnSingleDie(DiceSides.d6);
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha3))
 		{
-			GameObject d8 = (GameObject) Instantiate(dicePrefabs[2], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d8);
+            SpawnSingleDie(DiceSides.d8);
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha4))
 		{
-			//TODO: Multiple colors of dice here
-			GameObject d10 = (GameObject) Instantiate(dicePrefabs[3], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d10);
+            //TODO: Multiple colors of dice here
+            SpawnSingleDie(DiceSides.d10);
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha5))
 		{
-			GameObject d12 = (GameObject) Instantiate(dicePrefabs[4], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d12);
+            SpawnSingleDie(DiceSides.d12);
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha6))
 		{
-			GameObject d20 = (GameObject) Instantiate(dicePrefabs[5], transform.position, transform.rotation);
-			pickupObject.AddObjectToHand(d20);
+            SpawnSingleDie(DiceSides.d20);
 		}
 	}
 
@@ -88,7 +120,7 @@ public class Pallette : MonoBehaviour {
 		switch (faceUp)
 		{
 		case 0: 
-			SpawnDice ();
+			SpawnDiceFromKeyboard ();
 			break;
 		
 		case 1:
@@ -96,4 +128,14 @@ public class Pallette : MonoBehaviour {
 			break;
 		}
 	}
+
+    void OnEnable()
+    {
+        mDiceSpawnEvent.AddListener(SpawnSingleDie);
+    }
+
+    void OnDisable()
+    {
+        mDiceSpawnEvent.RemoveListener(SpawnSingleDie);
+    }
 }
