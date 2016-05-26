@@ -17,13 +17,18 @@ public class Button : SteamVR_InteractableObject
 
     public void GotHit()
     {
-        print(gameObject.name + " got hit!");
         DiceSpawnEvent.Invoke(diceSides);
     }
 
     public override void StartUsing(GameObject usingObject)
     {
         base.StartUsing(usingObject);
+        GotHit();
+    }
+
+    public override void StopUsing(GameObject usingObject)
+    {
+        base.StopUsing(usingObject);
         GotHit();
     }
 }

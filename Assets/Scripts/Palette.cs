@@ -44,7 +44,6 @@ public class Palette : MonoBehaviour {
 
     void SpawnSingleDie(DiceSides sides)
     {
-        Debug.Log("SpawnSingleDie triggered");
         GameObject die = (GameObject)Instantiate(dicePrefabs[(int)sides], transform.position, transform.rotation);
         pickupObject.AddObjectToHand(die);
     }

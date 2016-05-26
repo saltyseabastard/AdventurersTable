@@ -43,6 +43,7 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
             RaycastHit pointerCollidedWith;
             bool rayHit = Physics.Raycast(pointerRaycast, out pointerCollidedWith, Mathf.Infinity, layerMask);
             float pointerBeamLength = GetPointerBeamLength(rayHit, pointerCollidedWith);
+            
             SetPointerTransform(pointerBeamLength, pointerThickness);
         }
     }

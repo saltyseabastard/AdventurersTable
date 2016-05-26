@@ -39,7 +39,7 @@ public class PickupObject : MonoBehaviour
     void DoTriggerClicked(object sender, ControllerClickedEventArgs e)
     {
         //DebugLogger(e.controllerIndex, "TRIGGER", "pressed down", e.buttonPressure, e.touchpadAxis);
-        Debug.Log("Trigger clicked");
+        //Debug.Log("Trigger clicked");
     }
 
     void DoTriggerUnclicked(object sender, ControllerClickedEventArgs e)
@@ -68,7 +68,8 @@ public class PickupObject : MonoBehaviour
 			SendMessageTo (previousObject, "OnRaycastExit");
 			SendMessageTo (hitObject, "OnRaycastEnter");
 			previousObject = hitObject;
-		} else 
+		}
+        else 
 		{
 			SendMessageTo (previousObject, "OnRaycastExit");
 			previousObject = null;
@@ -79,8 +80,6 @@ public class PickupObject : MonoBehaviour
 			carry (carriedObjects);
 			checkDrop();
 		}
-
-		//rotateObject();
 	 	else 
 		{
 			pickup();
@@ -91,10 +90,6 @@ public class PickupObject : MonoBehaviour
 	{
 		if (target)
 			target.SendMessage (message, gameObject, SendMessageOptions.DontRequireReceiver);
-	}
-
-	void rotateObject() {
-		//carriedObject.transform.Rotate(5,10,15);
 	}
 
 	void carry(ArrayList objects) 
@@ -138,9 +133,9 @@ public class PickupObject : MonoBehaviour
             go.layer = 8;
 
             rb.velocity = origin.TransformVector(
-                new Vector3(device.velocity.x + Random.Range(0, 1.5f),
-                            device.velocity.y + Random.Range(0, 1.5f),
-                            device.velocity.z + Random.Range(0, 1.5f)));
+                new Vector3(device.velocity.x + Random.Range(-0.33f, 0.33f),
+                            device.velocity.y + Random.Range(0, 1f),
+                            device.velocity.z + Random.Range(0, 1f)));
 
             rb.angularVelocity = origin.TransformVector(
                 new Vector3(device.angularVelocity.x + Random.Range(-1, 1),
