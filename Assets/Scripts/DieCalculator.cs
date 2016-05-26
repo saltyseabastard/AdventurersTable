@@ -39,9 +39,10 @@ public class DieCalculator : MonoBehaviour {
 
 	void AnimateDieValue()
 	{
+        //emit sparks on highest die value
 		if (!dieValueHasAnimated) {
-			if (GetComponent<ParticleSystem>() && dieValue == faces.Length)
-				GetComponent<ParticleSystem>().Emit (120);
+			if (dieValue == faces.Length)
+                highRollSparks.Emit (120);
 
 			iTween.ScaleFrom (text.gameObject, iTween.Hash ("x", 0.1f, "y", 0.1f, "time", 0.5f, "easetype", iTween.EaseType.easeOutElastic));
 			dieValueHasAnimated = true;

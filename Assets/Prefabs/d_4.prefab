@@ -109,8 +109,7 @@ GameObject:
   - 54: {fileID: 5460908}
   - 64: {fileID: 6462360}
   - 114: {fileID: 11447594}
-  - 114: {fileID: 11472728}
-  - 114: {fileID: 114000011878156016}
+  - 114: {fileID: 114000010285857460}
   m_Layer: 2
   m_Name: d_4
   m_TagString: Untagged
@@ -316,7 +315,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179252}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 0.5
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -376,18 +375,6 @@ MonoBehaviour:
   text: {fileID: 10259754}
   highRollSparks: {fileID: 19801282}
   deathFlicker: {fileID: 19824570}
---- !u!114 &11472728
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 179252}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedMaterial: {fileID: 2100000, guid: c426e303fd02e4c8e962f186c8767db5, type: 2}
 --- !u!198 &19801282
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3953,7 +3940,7 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179252}
   m_IsPrefabParent: 1
---- !u!114 &114000011878156016
+--- !u!114 &114000010285857460
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -3961,21 +3948,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 179252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3abaf4521bf2344ea21ed3020b98eb2, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 1
-  holdButtonToGrab: 0
-  pauseCollisionsOnGrab: 0
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
+  selectedMaterial: {fileID: 0}

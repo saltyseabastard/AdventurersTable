@@ -84,7 +84,7 @@ public class Palette : MonoBehaviour {
 		//iTween.MoveFrom(
 	}
 
-	void SwapEnvironments()
+	void SwapEnvironmentsFromKeyboard()
 	{
 		if(Input.GetKeyDown (KeyCode.Alpha1))
 		{
@@ -124,7 +124,7 @@ public class Palette : MonoBehaviour {
 			break;
 		
 		case 1:
-			SwapEnvironments ();
+			SwapEnvironmentsFromKeyboard ();
 			break;
 		}
 	}

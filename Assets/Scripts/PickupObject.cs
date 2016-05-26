@@ -134,10 +134,13 @@ public class PickupObject : MonoBehaviour
             go.transform.parent = null;
             rb.useGravity = true;
 
+            //switch dice from ignore raycast to dice layer for table interaction
+            go.layer = 8;
+
             rb.velocity = origin.TransformVector(
-                new Vector3(device.velocity.x + Random.Range(-1, 1),
-                            device.velocity.y + Random.Range(-1, 1),
-                            device.velocity.z + Random.Range(-1, 1)));
+                new Vector3(device.velocity.x + Random.Range(0, 1.5f),
+                            device.velocity.y + Random.Range(0, 1.5f),
+                            device.velocity.z + Random.Range(0, 1.5f)));
 
             rb.angularVelocity = origin.TransformVector(
                 new Vector3(device.angularVelocity.x + Random.Range(-1, 1),
@@ -163,6 +166,8 @@ public class PickupObject : MonoBehaviour
 			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
 				ForceMode.Impulse);
 
+            //switch dice from ignore raycast to dice layer for table interaction
+            go.layer = 8;
 			carriedObjects.Remove (carriedObjects[i]);
 		}
 	}
