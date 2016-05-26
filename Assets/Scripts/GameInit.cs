@@ -23,8 +23,6 @@ public class GameInit : MonoBehaviour {
         else
             vrStatus = VRStatus.None;
 
-        InvokeRepeating("CheckForVive", 0, 1);
-
         //Enable/disable VR Camera rig (defaults to PC)
         switch (vrStatus)
         {
@@ -40,11 +38,6 @@ public class GameInit : MonoBehaviour {
         }
 
 
-    }
-
-    void CheckForVive()
-    {
-        Debug.Log("Connected VR Device: " + vrStatus + " UE found " + UnityEngine.VR.VRSettings.loadedDeviceName);
     }
 
 }
