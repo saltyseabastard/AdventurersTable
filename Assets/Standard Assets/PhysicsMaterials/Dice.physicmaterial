@@ -6,10 +6,10 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Dice
-  dynamicFriction: 0.34
-  staticFriction: 0.48
-  bounciness: 0.55
-  frictionCombine: 1
+  dynamicFriction: 0.52
+  staticFriction: 0.55
+  bounciness: 0.45
+  frictionCombine: 0
   bounceCombine: 3
 --- !u!1002 &13400001
 EditorExtensionImpl:

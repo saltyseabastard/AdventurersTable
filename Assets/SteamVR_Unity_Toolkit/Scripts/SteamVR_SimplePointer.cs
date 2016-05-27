@@ -26,7 +26,7 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
     private GameObject pointerHolder;
     private GameObject pointer;
     private GameObject pointerTip;
-    private Vector3 pointerTipScale = new Vector3(0.015f, 0.015f, 0.015f); 
+    private Vector3 pointerTipScale = new Vector3(0.015f, 0.015f, 0.015f);
 
     // Use this for initialization
     protected override void Start () {
@@ -37,13 +37,21 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
     protected override void Update()
     {
         base.Update();
+
         if (pointer.gameObject.activeSelf)
         {
             Ray pointerRaycast = new Ray(transform.position, transform.forward);
             RaycastHit pointerCollidedWith;
             bool rayHit = Physics.Raycast(pointerRaycast, out pointerCollidedWith, Mathf.Infinity, layerMask);
-            float pointerBeamLength = GetPointerBeamLength(rayHit, pointerCollidedWith);
-            
+
+            //show the play area only if it's colliding with the floor, not the UI
+            //if (pointerCollidedWith.collider.gameObject != null)
+            //{
+            //    bool shouldShowPlayAreaCursor = !pointerCollidedWith.collider.gameObject.tag.Equals("UI");
+            //    playAreaCursor.GetComponent<Renderer>().enabled = shouldShowPlayAreaCursor;
+            //}
+
+            float pointerBeamLength = GetPointerBeamLength(rayHit, pointerCollidedWith);        
             SetPointerTransform(pointerBeamLength, pointerThickness);
         }
     }
@@ -86,9 +94,8 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
 
     protected override void TogglePointer(bool state)
     {
-        state = (beamAlwaysOn ? true : state);
-
         base.TogglePointer(state);
+        state = (beamAlwaysOn ? true : state);
         pointer.gameObject.SetActive(state);
         bool tipState = (showPointerTip ? state : false);
         pointerTip.gameObject.SetActive(tipState);

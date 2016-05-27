@@ -76,7 +76,7 @@ public abstract class SteamVR_WorldPointer : MonoBehaviour {
     protected bool playAreaCursorCollided = false;
 
     private SteamVR_PlayArea playArea;
-    private GameObject playAreaCursor;
+    protected GameObject playAreaCursor;
     private GameObject[] playAreaCursorBoundaries;
     private bool isActive;
 
@@ -246,7 +246,8 @@ public abstract class SteamVR_WorldPointer : MonoBehaviour {
             }
         }
 
-        if (!playAreaCursorCollided && (interactableObject == null || !interactableObject.pointerActivatesUseAction))
+        //teleport
+        if (!playAreaCursorCollided && (interactableObject == null || !interactableObject.pointerActivatesUseAction) && !pointerContactTarget.gameObject.tag.Equals("Prop"))
         {
             OnWorldPointerDestinationSet(SetPointerEvent(controllerIndex, pointerContactDistance, pointerContactTarget, destinationPosition));
         }
@@ -254,8 +255,11 @@ public abstract class SteamVR_WorldPointer : MonoBehaviour {
 
     protected virtual void TogglePointer(bool state)
     {
-        bool playAreaState = (showPlayAreaCursor ? state: false);
-        playAreaCursor.gameObject.SetActive(playAreaState);
+        if (pointerContactTarget && !pointerContactTarget.gameObject.tag.Equals("UI")) 
+        {
+            bool playAreaState = (showPlayAreaCursor ? state : false);
+            playAreaCursor.gameObject.SetActive(playAreaState);
+        }
     }
 
     protected virtual void SetPointerMaterial()
