@@ -365,6 +365,18 @@ Prefab:
       propertyPath: m_TagString
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2389078, guid: 216bfb582e7e7124382beb6afa67a3fe, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f33f0846a4b047ae92dd223329cbe8f, type: 2}
+    - target: {fileID: 2367834, guid: 216bfb582e7e7124382beb6afa67a3fe, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 74c6954a86fbc4d18861f5e41964f943, type: 2}
+    - target: {fileID: 2398042, guid: 216bfb582e7e7124382beb6afa67a3fe, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fdb5b1d9d242c4572adb43d5b7bd3b69, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 216bfb582e7e7124382beb6afa67a3fe, type: 2}
   m_IsPrefabParent: 0
@@ -643,176 +655,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 468852, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0.27800393
-      objectReference: {fileID: 0}
-    - target: {fileID: 468852, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0.1865907
-      objectReference: {fileID: 0}
-    - target: {fileID: 468852, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.055144776
-      objectReference: {fileID: 0}
-    - target: {fileID: 468852, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: -0.9406683
-      objectReference: {fileID: 0}
-    - target: {fileID: 182748, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 132254, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 159688, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.00000008152732
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.70080185
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.00000003642812
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.713356
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.546
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 497814, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -0.301
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.000000081722746
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.70080185
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.000000038586634
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.713356
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.541
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 404792, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.013
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.00000008742135
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.70080185
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0.000000043409138
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.713356
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.535
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 427600, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.336
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: envLoader
-      value: 
-      objectReference: {fileID: 675773500}
-    - target: {fileID: 2319928, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 195972, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8117568, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[0]
-      value: 
-      objectReference: {fileID: 1846723824}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[1]
-      value: 
-      objectReference: {fileID: 1227344537}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[2]
-      value: 
-      objectReference: {fileID: 1200614291}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[3]
-      value: 
-      objectReference: {fileID: 1667088229}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[4]
-      value: 
-      objectReference: {fileID: 1182547416}
-    - target: {fileID: 11485520, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceButtons.Array.data[5]
-      value: 
-      objectReference: {fileID: 2102322720}
-    - target: {fileID: 409086, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 457390, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 490226, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11430328, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-      propertyPath: diceSides
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6516292, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &798939345
@@ -894,80 +741,6 @@ Transform:
   m_Father: {fileID: 636292912}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &902957762 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 132254, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &902957763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 902957762}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 0
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!1 &921801053 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 182748, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &921801054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 921801053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 0
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1001 &1015612999
 Prefab:
   m_ObjectHideFlags: 0
@@ -1132,159 +905,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1117729501 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 159688, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &1117729502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1117729501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 0
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!4 &1177982620 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000010678839212, guid: bd67e3209ed006e4787d55b2ac38661a,
     type: 2}
   m_PrefabInternal: {fileID: 1015612999}
---- !u!1 &1182547415 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 123584, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &1182547416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1182547415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 4
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!1 &1200614290 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 177422, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &1200614291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1200614290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 2
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
---- !u!1 &1227344536 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 136360, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &1227344537
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1227344536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 1
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &1409998287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,43 +1442,6 @@ Transform:
   m_Father: {fileID: 1914107122}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1667088228 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 153778, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &1667088229
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1667088228}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 3
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
 --- !u!1 &1686262862
 GameObject:
   m_ObjectHideFlags: 0
@@ -1932,12 +1520,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f235694aa5dbb47459a53d8015a4b74d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1846723824 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11430328, guid: 2eabb150b5c594d74b095e03845b8ecd,
-    type: 2}
-  m_PrefabInternal: {fileID: 769689030}
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
 --- !u!1 &1890143697
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,40 +1683,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1914107121}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2102322719 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 144240, guid: 2eabb150b5c594d74b095e03845b8ecd, type: 2}
-  m_PrefabInternal: {fileID: 769689030}
---- !u!114 &2102322720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2102322719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highlightOnTouch: 0
-  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
-  isGrabbable: 0
-  holdButtonToGrab: 1
-  pauseCollisionsOnGrab: 1
-  grabSnapType: 0
-  snapToRotation: {x: 0, y: 0, z: 0}
-  snapToPosition: {x: 0, y: 0, z: 0}
-  grabAttatchMechanic: 0
-  detatchThreshold: 500
-  springJointStrength: 500
-  springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
-  buttonType: 0
-  diceSides: 5
-  DiceSpawnEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
