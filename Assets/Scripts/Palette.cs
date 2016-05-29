@@ -16,6 +16,7 @@ public class Palette : MonoBehaviour {
 
 	public LoadEnvironments envLoader;
 	public Button[] diceButtons;
+    public Button[] envButtons;
 	public GameObject[] dicePrefabs;
 
 	//the pickupObject script on the character controller
@@ -24,9 +25,15 @@ public class Palette : MonoBehaviour {
 
     private UnityAction buttonListener;
     private DiceSpawnEvent mDiceSpawnEvent;
+    private EnvLoadEvent mEnvLoadEvent;
 
     [System.Serializable]
     public class DiceSpawnEvent : UnityEvent<DiceSides>
+    {
+    }
+
+    [System.Serializable]
+    public class EnvLoadEvent : UnityEvent<LoadEnvironments.Environment>
     {
     }
 
@@ -35,10 +42,18 @@ public class Palette : MonoBehaviour {
         if (mDiceSpawnEvent == null)
             mDiceSpawnEvent = new DiceSpawnEvent();
 
+        if (mEnvLoadEvent == null)
+            mEnvLoadEvent = new EnvLoadEvent();
+
         //assign the event instance to the buttons that will use it
         foreach (Button btn in diceButtons)
         {
             btn.DiceSpawnEvent = mDiceSpawnEvent;
+        }
+
+        foreach (Button btn in envButtons)
+        {
+            btn.EnvLoadEvent = mEnvLoadEvent;
         }
     }
 
@@ -46,6 +61,11 @@ public class Palette : MonoBehaviour {
     {
         GameObject die = (GameObject)Instantiate(dicePrefabs[(int)sides], transform.position, transform.rotation);
         pickupObject.AddObjectToHand(die);
+    }
+
+    void LoadEnvironment(LoadEnvironments.Environment env)
+    {
+        envLoader.ChangeEnvironment(env);
     }
 
     void SpawnDiceFromKeyboard()
@@ -87,16 +107,16 @@ public class Palette : MonoBehaviour {
 	{
 		if(Input.GetKeyDown (KeyCode.Alpha1))
 		{
-			envLoader.ChangeEnvironment (LoadEnvironments.Environment.Blacksmith);
+			LoadEnvironment(LoadEnvironments.Environment.Blacksmith);
 			//TODO: animate button
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha2))
 		{
-			envLoader.ChangeEnvironment (LoadEnvironments.Environment.Forest);
+			LoadEnvironment(LoadEnvironments.Environment.Forest);
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha3))
 		{
-			envLoader.ChangeEnvironment (LoadEnvironments.Environment.Stonehenge);
+			LoadEnvironment(LoadEnvironments.Environment.Stonehenge);
 		}
 	}
 
@@ -131,10 +151,12 @@ public class Palette : MonoBehaviour {
     void OnEnable()
     {
         mDiceSpawnEvent.AddListener(SpawnSingleDie);
+        mEnvLoadEvent.AddListener(LoadEnvironment);
     }
 
     void OnDisable()
     {
         mDiceSpawnEvent.RemoveListener(SpawnSingleDie);
+        mEnvLoadEvent.RemoveListener(LoadEnvironment);
     }
 }

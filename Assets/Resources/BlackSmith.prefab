@@ -2760,13 +2760,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.3216302, y: 1.5232604, z: -5.6392527}
+  m_LocalRotation: {x: 0.0010434361, y: 0.001610339, z: -0.0022137, w: 0.9999957}
+  m_LocalPosition: {x: 2.3216302, y: 2.25, z: -5.6392527}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 453902}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.119, y: 0.179, z: -0.246}
 --- !u!4 &401288
 Transform:
   m_ObjectHideFlags: 1
@@ -9530,7 +9530,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 2.4
+  m_Intensity: 2.02
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9596,7 +9596,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 5.22
+  m_Intensity: 2.02
   m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9695,7 +9695,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 9.46
+  m_Intensity: 2.02
   m_Range: 2.5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9761,7 +9761,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 5.22
+  m_Intensity: 2.02
   m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9794,7 +9794,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 11.96
+  m_Intensity: 2.02
   m_Range: 0.5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9827,7 +9827,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 5.22
+  m_Intensity: 2.02
   m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9860,7 +9860,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 11.96
+  m_Intensity: 2.02
   m_Range: 0.5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9893,7 +9893,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.6923077, b: 0, a: 1}
-  m_Intensity: 2
+  m_Intensity: 2.02
   m_Range: 4
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9926,7 +9926,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 11.96
+  m_Intensity: 2.02
   m_Range: 0.5
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9992,7 +9992,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 5.22
+  m_Intensity: 2.02
   m_Range: 1
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -10025,7 +10025,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.5895523, g: 0.87944895, b: 1, a: 1}
-  m_Intensity: 7.6
+  m_Intensity: 2.02
   m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -10058,8 +10058,8 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 0.5955882, g: 0.7824544, b: 1, a: 1}
-  m_Intensity: 6
-  m_Range: 4
+  m_Intensity: 1.04
+  m_Range: 3.1
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -10067,7 +10067,7 @@ Light:
     m_Resolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_NormalBias: 0.33
     m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
@@ -10076,9 +10076,9 @@ Light:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Lightmapping: 1
+  m_Lightmapping: 2
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0.41
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!108 &10894160
@@ -10091,7 +10091,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.7680827, b: 0.24626863, a: 1}
-  m_Intensity: 5.22
+  m_Intensity: 2.02
   m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -10124,7 +10124,7 @@ Light:
   serializedVersion: 7
   m_Type: 2
   m_Color: {r: 1, g: 0.62790936, b: 0.14179105, a: 1}
-  m_Intensity: 7
+  m_Intensity: 2.02
   m_Range: 2
   m_SpotAngle: 30
   m_CookieSize: 10

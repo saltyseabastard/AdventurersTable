@@ -12,12 +12,18 @@ public class Button : SteamVR_InteractableObject
 
     public ButtonType buttonType;
     public Palette.DiceSides diceSides;
+    public LoadEnvironments.Environment environments;
 
     public Palette.DiceSpawnEvent DiceSpawnEvent;
+    public Palette.EnvLoadEvent EnvLoadEvent;
 
     public void GotHit()
     {
-        DiceSpawnEvent.Invoke(diceSides);
+        if (buttonType == ButtonType.Dice)
+            DiceSpawnEvent.Invoke(diceSides);
+        else if (buttonType == ButtonType.Environment)
+            EnvLoadEvent.Invoke(environments);
+
     }
 
     public override void StartUsing(GameObject usingObject)

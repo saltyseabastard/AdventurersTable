@@ -30,6 +30,7 @@ GameObject:
   - 33: {fileID: 3397168}
   - 65: {fileID: 6518706}
   - 23: {fileID: 2363672}
+  - 114: {fileID: 114000013907063250}
   m_Layer: 0
   m_Name: Button 5
   m_TagString: Untagged
@@ -87,6 +88,7 @@ GameObject:
   - 33: {fileID: 3370424}
   - 65: {fileID: 6516804}
   - 23: {fileID: 2369950}
+  - 114: {fileID: 114000010228793234}
   m_Layer: 0
   m_Name: Button 9
   m_TagString: Untagged
@@ -105,6 +107,7 @@ GameObject:
   - 33: {fileID: 3399688}
   - 65: {fileID: 6572832}
   - 23: {fileID: 2329100}
+  - 114: {fileID: 114000010667172270}
   m_Layer: 0
   m_Name: Button 2
   m_TagString: Untagged
@@ -123,6 +126,7 @@ GameObject:
   - 33: {fileID: 3322658}
   - 65: {fileID: 6584346}
   - 23: {fileID: 2356740}
+  - 114: {fileID: 114000011847153562}
   m_Layer: 0
   m_Name: Button 6
   m_TagString: Untagged
@@ -141,6 +145,7 @@ GameObject:
   - 33: {fileID: 3311494}
   - 65: {fileID: 6532836}
   - 23: {fileID: 2350868}
+  - 114: {fileID: 114000010250538170}
   m_Layer: 0
   m_Name: Button 4
   m_TagString: Untagged
@@ -159,6 +164,7 @@ GameObject:
   - 33: {fileID: 3358278}
   - 65: {fileID: 6594876}
   - 23: {fileID: 2381216}
+  - 114: {fileID: 114000010264683974}
   m_Layer: 0
   m_Name: Button 8
   m_TagString: Untagged
@@ -194,6 +200,7 @@ GameObject:
   - 33: {fileID: 3369758}
   - 65: {fileID: 6536112}
   - 23: {fileID: 2323836}
+  - 114: {fileID: 114000013450512082}
   m_Layer: 0
   m_Name: Button 3
   m_TagString: Untagged
@@ -212,6 +219,7 @@ GameObject:
   - 33: {fileID: 3374186}
   - 65: {fileID: 6586952}
   - 23: {fileID: 2349700}
+  - 114: {fileID: 114000013308235604}
   m_Layer: 0
   m_Name: Button 7
   m_TagString: Untagged
@@ -238,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &403400
 Transform:
   m_ObjectHideFlags: 1
@@ -330,7 +338,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0}
   m_Children: []
   m_Father: {fileID: 468852}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &458342
 Transform:
@@ -358,9 +366,9 @@ Transform:
   - {fileID: 403400}
   - {fileID: 458342}
   - {fileID: 495032}
-  - {fileID: 490226}
-  - {fileID: 409086}
   - {fileID: 457390}
+  - {fileID: 409086}
+  - {fileID: 490226}
   - {fileID: 427600}
   - {fileID: 404792}
   - {fileID: 497814}
@@ -392,7 +400,7 @@ Transform:
   m_LocalScale: {x: 0.25000024, y: 0.25, z: 0}
   m_Children: []
   m_Father: {fileID: 468852}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &495032
 Transform:
@@ -1109,15 +1117,21 @@ MonoBehaviour:
   detatchThreshold: 500
   springJointStrength: 500
   springJointDamper: 50
-  isUsable: 0
-  holdButtonToUse: 1
-  pointerActivatesUseAction: 0
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
   buttonType: 0
-  diceSides: 4
+  diceSides: 0
+  environments: 0
   DiceSpawnEvent:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
 --- !u!114 &11432846
 MonoBehaviour:
@@ -1250,12 +1264,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   envLoader: {fileID: 0}
   diceButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11430328}
+  - {fileID: 114000010667172270}
+  - {fileID: 114000013450512082}
+  - {fileID: 114000010250538170}
+  - {fileID: 114000013907063250}
+  - {fileID: 114000011847153562}
+  envButtons:
+  - {fileID: 114000013308235604}
+  - {fileID: 114000010264683974}
+  - {fileID: 114000010228793234}
   dicePrefabs:
   - {fileID: 179252, guid: dc240f10232ca4791a20f4e0399b23d1, type: 2}
   - {fileID: 140780, guid: 06dbe27adda364684ae46bd42b24d239, type: 2}
@@ -1304,3 +1322,315 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195972}
   m_IsPrefabParent: 1
+--- !u!114 &114000010228793234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 1
+  diceSides: 0
+  environments: 2
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000010250538170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 0
+  diceSides: 3
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000010264683974
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 1
+  diceSides: 0
+  environments: 1
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000010667172270
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 0
+  diceSides: 1
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000011847153562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 0
+  diceSides: 5
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000013308235604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 1
+  diceSides: 0
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000013450512082
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 0
+  diceSides: 2
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114000013907063250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 123584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cb2158cbe0df4e45a8314abd453c00e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightOnTouch: 0
+  touchHighlightColor: {r: 0, g: 0, b: 0, a: 0}
+  isGrabbable: 0
+  holdButtonToGrab: 1
+  pauseCollisionsOnGrab: 1
+  grabSnapType: 0
+  snapToRotation: {x: 0, y: 0, z: 0}
+  snapToPosition: {x: 0, y: 0, z: 0}
+  grabAttatchMechanic: 0
+  detatchThreshold: 500
+  springJointStrength: 500
+  springJointDamper: 50
+  isUsable: 1
+  holdButtonToUse: 0
+  pointerActivatesUseAction: 1
+  buttonType: 0
+  diceSides: 4
+  environments: 0
+  DiceSpawnEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+DiceSpawnEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  EnvLoadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Palette+EnvLoadEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
