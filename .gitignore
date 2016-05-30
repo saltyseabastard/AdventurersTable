@@ -18,6 +18,9 @@ obj/
 *.user
 *.unityproj
 *.booproj
+*.pdb
+tabletop_Data/
+tabletop.exe
 
 # ============ #
 # OS generated #
