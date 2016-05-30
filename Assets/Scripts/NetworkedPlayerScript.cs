@@ -9,20 +9,35 @@ public class NetworkedPlayerScript : NetworkBehaviour
     public PickupObject pickupScript;
     //public ShootingScript shootingScript;
     //public GunMaterialSwitcher gunMaterialSwitcher;
+	Player player;
 
     Renderer[] renderers;
 
-    void Start()
+    void Awake()
     {
         renderers = GetComponentsInChildren<Renderer>();
-    }
+		player = GetComponent<Player> ();
+	}
 
     public override void OnStartLocalPlayer()
     {
-        fpsController.enabled = true;
-        fpsCamera.enabled = true;
-        audioListener.enabled = true;
-        pickupScript.enabled = true;
+		if (GameInit.vrStatus == GameInit.VRStatus.None)
+		{
+			player.fpsController.SetActive (true);
+			player.viveCameraRig.SetActive (false);
+
+			fpsController.enabled = true;
+			fpsCamera.enabled = true;
+			audioListener.enabled = true;
+			pickupScript.enabled = true;
+		}
+
+		else if (GameInit.vrStatus == GameInit.VRStatus.Vive)
+		{
+			player.viveCameraRig.SetActive (true);
+			player.fpsController.SetActive (false);
+		}
+
         //shootingScript.enabled = true;
         //gunMaterialSwitcher.SwitchMaterial(true);
 

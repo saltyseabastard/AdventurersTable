@@ -10,9 +10,26 @@ public class GameInit : MonoBehaviour {
         None
     }
 
-    public static VRStatus vrStatus;
+    public static VRStatus vrStatus = VRStatus.None;
     public GameObject viveCameraRig;
     public GameObject fpsController;
+
+	/*
+	public void SetActiveRig(VRStatus rig)
+	{
+		if (rig == VRStatus.Vive)
+		{
+			this.viveCameraRig.SetActive (true);
+			this.fpsController.SetActive (false);
+		} else
+		{
+			this.viveCameraRig.SetActive(false);
+			if (fpsController)
+				this.fpsController.SetActive(true);
+		}
+	}
+	*/
+
 
 	// Use this for initialization
 	void Start ()
@@ -24,20 +41,7 @@ public class GameInit : MonoBehaviour {
             vrStatus = VRStatus.None;
 
         //Enable/disable VR Camera rig (defaults to PC)
-        switch (vrStatus)
-        {
-            case VRStatus.Vive:
-                viveCameraRig.SetActive(true);
-                fpsController.SetActive(false);
-                break;
-
-            case VRStatus.None:
-                viveCameraRig.SetActive(false);
-                fpsController.SetActive(true);
-                break;
-        }
-
-
+        
     }
 
 }

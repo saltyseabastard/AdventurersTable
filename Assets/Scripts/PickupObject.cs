@@ -26,13 +26,19 @@ public class PickupObject : MonoBehaviour
         //listen for relevant controller events
         if (GetComponent<SteamVR_ControllerEvents>() == null)
         {
-            Debug.LogError("SteamVR_ControllerEvents_ListenerExample is required to be attached to a SteamVR Controller that has the SteamVR_ControllerEvents script attached to it");
+            Debug.LogWarning("SteamVR_ControllerEvents_ListenerExample is required to be attached to a SteamVR Controller that has the SteamVR_ControllerEvents script attached to it");
             return;
         }
 
         //Setup controller event listeners
-        GetComponent<SteamVR_ControllerEvents>().TriggerClicked += new ControllerClickedEventHandler(DoTriggerClicked);
-        GetComponent<SteamVR_ControllerEvents>().TriggerUnclicked += new ControllerClickedEventHandler(DoTriggerUnclicked);
+		SteamVR_ControllerEvents svr;
+		//Setup controller event listeners
+		if (GetComponent<SteamVR_ControllerEvents> ())
+		{
+			svr = GetComponent<SteamVR_ControllerEvents> ();
+			svr.TriggerClicked += new ControllerClickedEventHandler (DoTriggerClicked);
+			svr.TriggerUnclicked += new ControllerClickedEventHandler (DoTriggerUnclicked);
+		}
     
     }
 
@@ -49,9 +55,14 @@ public class PickupObject : MonoBehaviour
 
     void OnDisable()
     {
+		SteamVR_ControllerEvents svr;
         //Setup controller event listeners
-        GetComponent<SteamVR_ControllerEvents>().TriggerClicked -= new ControllerClickedEventHandler(DoTriggerClicked);
-        GetComponent<SteamVR_ControllerEvents>().TriggerUnclicked -= new ControllerClickedEventHandler(DoTriggerUnclicked);
+		if (GetComponent<SteamVR_ControllerEvents> ())
+		{
+			svr = GetComponent<SteamVR_ControllerEvents> ();
+			svr.TriggerClicked -= new ControllerClickedEventHandler (DoTriggerClicked);
+			svr.TriggerUnclicked -= new ControllerClickedEventHandler (DoTriggerUnclicked);
+		}
     }
 
 	// Update is called once per frame
