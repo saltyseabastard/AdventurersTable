@@ -3,6 +3,22 @@ using System.Collections;
 
 public class LoadEnvironments : MonoBehaviour
 {
+	public enum Environment
+	{
+		Blacksmith = 0,
+		Forest = 1,
+		Stonehenge = 2,
+		Tavern,
+		Desert,
+		Plain,
+		Dungeon,
+		LivingRoom,
+		Rivendell,
+		Cyberpunk,
+		SeedyBar,
+		Hell,
+		Cave
+	}
 
     public string[] environments;
     public Material[] MaterialRef;
@@ -11,41 +27,33 @@ public class LoadEnvironments : MonoBehaviour
 
     void Start()
     {
-        instance = Instantiate(Resources.Load(environments[0], typeof(GameObject))) as GameObject;
-        instance.transform.parent = transform;
-        instance.transform.localPosition = originalPos[0];
-        instance.SetActive(true);
+		ChangeEnvironment (Environment.Blacksmith);
     }
+
+	public void ChangeEnvironment(Environment env)
+	{
+		Destroy(instance);
+		RenderSettings.skybox = MaterialRef[(int)env];
+		instance = Instantiate(Resources.Load(environments[(int)env], typeof(GameObject))) as GameObject;
+		instance.transform.parent = transform;
+		instance.transform.localPosition = originalPos[(int)env];
+		instance.SetActive(true);
+	}
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            Destroy(instance);
-            RenderSettings.skybox = MaterialRef[0];
-            instance = Instantiate(Resources.Load(environments[0], typeof(GameObject))) as GameObject;
-            instance.transform.parent = transform;
-            instance.transform.localPosition = originalPos[0];
-            instance.SetActive(true);
+			ChangeEnvironment (Environment.Blacksmith);
         }
-        if (Input.GetKeyDown(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            Destroy(instance);
-            RenderSettings.skybox = MaterialRef[1];
-            instance = Instantiate(Resources.Load(environments[1], typeof(GameObject))) as GameObject;
-            instance.transform.parent = transform;
-            instance.transform.localPosition = originalPos[1];
-            instance.SetActive(true);
+			ChangeEnvironment (Environment.Forest);
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            Destroy(instance);
-            RenderSettings.skybox = MaterialRef[2];
-            instance = Instantiate(Resources.Load(environments[2], typeof(GameObject))) as GameObject;
-            instance.transform.parent = transform;
-            instance.transform.localPosition = originalPos[2];
-            instance.SetActive(true);
+			ChangeEnvironment (Environment.Stonehenge);
         }
     }
 }

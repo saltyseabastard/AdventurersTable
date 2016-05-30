@@ -24,7 +24,13 @@ public class DieCalculator : MonoBehaviour {
 	IEnumerator CountdownToExtinction()
 	{
 		countDownHasStarted = true;
-		yield return new WaitForSeconds(7);
+        rb.isKinematic = true;
+
+        text.gameObject.SetActive(true);
+        CalculateDieValue();
+        AnimateDieValue();
+
+        yield return new WaitForSeconds(7);
 
 		if (countDownHasStarted)
 		{
@@ -39,9 +45,10 @@ public class DieCalculator : MonoBehaviour {
 
 	void AnimateDieValue()
 	{
+        //emit sparks on highest die value
 		if (!dieValueHasAnimated) {
-			if (GetComponent<ParticleSystem>() && dieValue == faces.Length)
-				GetComponent<ParticleSystem>().Emit (120);
+			if (dieValue == faces.Length)
+                highRollSparks.Emit (120);
 
 			iTween.ScaleFrom (text.gameObject, iTween.Hash ("x", 0.1f, "y", 0.1f, "time", 0.5f, "easetype", iTween.EaseType.easeOutElastic));
 			dieValueHasAnimated = true;
@@ -76,25 +83,22 @@ public class DieCalculator : MonoBehaviour {
 
 	void Update()
 	{
-		if (rb.IsSleeping ()) {
-			text.gameObject.SetActive (true);
-
+		if (rb.IsSleeping ())
+        {
 			KeepTextAtopDie ();
 			RotateTextToFaceCamera ();
-			CalculateDieValue ();
-			AnimateDieValue ();
+			
 			if (!countDownHasStarted)
 			{
 				StartCoroutine ("CountdownToExtinction");
 			}
-				
-
 		} 
 		else 
 		{
 			countDownHasStarted = false;
 			text.gameObject.SetActive (false);
 			dieValueHasAnimated = false;
+            rb.isKinematic = false;
 		}
 	}
 }

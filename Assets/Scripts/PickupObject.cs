@@ -1,30 +1,62 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
-public class PickupObject : MonoBehaviour {
+public class PickupObject : MonoBehaviour
+{
 	GameObject mainCamera;
 	bool carrying;
 	ArrayList carriedObjects = new ArrayList ();
 	public float distance;
 	public float smooth;
 	public LayerMask layerMask;
-	//CharacterController controller;
 	GameObject hitObject;
 	int x = Screen.width / 2;
 	int y = Screen.height / 2;
 	GameObject previousObject;
 	public GameObject blackHole;
+    SteamVR_TrackedObject trackedController;
 
-	// Use this for initialization
-	void Start () {
-		mainCamera = GameObject.FindWithTag("MainCamera");
-		//rigidBody = GetComponent<Rigidbody>();
-		//        controller = GetComponent<CharacterController>();
-	}
+    // Use this for initialization
+    void Start()
+    {
+        mainCamera = GameObject.FindWithTag("MainCamera");
+        trackedController = GetComponent<SteamVR_TrackedObject>();
+
+        //listen for relevant controller events
+        if (GetComponent<SteamVR_ControllerEvents>() == null)
+        {
+            Debug.LogError("SteamVR_ControllerEvents_ListenerExample is required to be attached to a SteamVR Controller that has the SteamVR_ControllerEvents script attached to it");
+            return;
+        }
+
+        //Setup controller event listeners
+        GetComponent<SteamVR_ControllerEvents>().TriggerClicked += new ControllerClickedEventHandler(DoTriggerClicked);
+        GetComponent<SteamVR_ControllerEvents>().TriggerUnclicked += new ControllerClickedEventHandler(DoTriggerUnclicked);
+    
+    }
+
+    void DoTriggerClicked(object sender, ControllerClickedEventArgs e)
+    {
+        //DebugLogger(e.controllerIndex, "TRIGGER", "pressed down", e.buttonPressure, e.touchpadAxis);
+        //Debug.Log("Trigger clicked");
+    }
+
+    void DoTriggerUnclicked(object sender, ControllerClickedEventArgs e)
+    {
+        ReleaseObjectWithForce((int)e.controllerIndex);   
+    }
+
+    void OnDisable()
+    {
+        //Setup controller event listeners
+        GetComponent<SteamVR_ControllerEvents>().TriggerClicked -= new ControllerClickedEventHandler(DoTriggerClicked);
+        GetComponent<SteamVR_ControllerEvents>().TriggerUnclicked -= new ControllerClickedEventHandler(DoTriggerUnclicked);
+    }
 
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
 		//ray stuff
 		Vector3 rayVector = new Vector3 (x, y, 0);
 
@@ -36,7 +68,8 @@ public class PickupObject : MonoBehaviour {
 			SendMessageTo (previousObject, "OnRaycastExit");
 			SendMessageTo (hitObject, "OnRaycastEnter");
 			previousObject = hitObject;
-		} else 
+		}
+        else 
 		{
 			SendMessageTo (previousObject, "OnRaycastExit");
 			previousObject = null;
@@ -47,8 +80,6 @@ public class PickupObject : MonoBehaviour {
 			carry (carriedObjects);
 			checkDrop();
 		}
-
-		//rotateObject();
 	 	else 
 		{
 			pickup();
@@ -61,24 +92,9 @@ public class PickupObject : MonoBehaviour {
 			target.SendMessage (message, gameObject, SendMessageOptions.DontRequireReceiver);
 	}
 
-	void rotateObject() {
-		//carriedObject.transform.Rotate(5,10,15);
-	}
-
 	void carry(ArrayList objects) 
 	{
-//		GameObject go = (GameObject) objects[0];
-//		if (!go.GetComponent<Gravity> ())
-//		{
-//			go.AddComponent<Gravity> ();
-//		}
-
-
 		blackHole.SetActive (true);
-
-		//go.transform.position = Vector3.Lerp (go.transform.position, mainCamera.transform.position + mainCamera.transform.forward * distance, Time.deltaTime * smooth);
-		//go.transform.rotation = Quaternion.identity;
-
 	}
 
 	void pickup() 
@@ -92,39 +108,61 @@ public class PickupObject : MonoBehaviour {
 	void checkDrop() 
 	{
 		if(Input.GetKeyDown (KeyCode.R) && carriedObjects.Count > 0) {
-			dropObject();
+			DropObject();
 		}
 	}
 
-	void dropObject() 
+    void ReleaseObjectWithForce(int deviceIndex)
+    {
+        //get force from velocity - SAVE THIS FOR VIVE CONTROLLERS
+        //Rigidbody device = gameObject.GetComponent<Rigidbody>();
+        var device = SteamVR_Controller.Input(deviceIndex);
+        var origin = trackedController.origin ? trackedController.origin : trackedController.transform.parent;
+
+        blackHole.SetActive(false);
+        carrying = false;
+        for (int i = carriedObjects.Count - 1; i >= 0; i--)
+        {
+            GameObject go = (GameObject)carriedObjects[i];
+            Rigidbody rb = go.GetComponent<Rigidbody>();
+
+            go.transform.parent = null;
+            rb.useGravity = true;
+
+            //switch dice from ignore raycast to dice layer for table interaction
+            go.layer = 8;
+
+            rb.velocity = origin.TransformVector(
+                new Vector3(device.velocity.x + Random.Range(-0.33f, 0.33f),
+                            device.velocity.y + Random.Range(0, 1f),
+                            device.velocity.z + Random.Range(0, 1f)));
+
+            rb.angularVelocity = origin.TransformVector(
+                new Vector3(device.angularVelocity.x + Random.Range(-1, 1),
+                            device.angularVelocity.x + Random.Range(-1, 1),
+                            device.angularVelocity.x + Random.Range(-1, 1)));
+
+            carriedObjects.Remove(carriedObjects[i]);
+        }
+    }
+
+    void DropObject() 
 	{
-
-		//get force from velocity - SAVE THIS FOR VIVE CONTROLLERS
-		//Vector3 horizontalVelocity = controller.velocity;
-		//horizontalVelocity = new Vector3(controller.velocity.x, 0, controller.velocity.z); //consider adding in y values for vive controller
-		//float horizontalSpeed = horizontalVelocity.magnitude;
-		//float verticalSpeed = controller.velocity.y;
-		//float overallSpeed = controller.velocity.magnitude;
-
-		carrying = false;
+        blackHole.SetActive(false);
+        carrying = false;
 		for (int i = carriedObjects.Count-1; i >= 0; i--)
 		{
 			GameObject go = (GameObject) carriedObjects [i];
 			Rigidbody rb = go.GetComponent<Rigidbody> ();
-
-			//remove black hole gravity if it exists
-//			if (go.GetComponent<Gravity> ())
-//			{
-//				Gravity gravity = go.GetComponent<Gravity> ();
-//				Destroy (gravity);
-//			}
-			blackHole.SetActive(false);
+			
 			go.transform.parent = null;
 			rb.useGravity = true;
 			rb.AddForce (transform.forward * Random.Range (3.5f, 5.5f), ForceMode.Impulse);
 			rb.AddTorque (new Vector3 (Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f), Random.Range (-5.5f, 5.5f)), 
 				ForceMode.Impulse);
 
+            //switch dice from ignore raycast to dice layer for table interaction
+            go.layer = 8;
 			carriedObjects.Remove (carriedObjects[i]);
 		}
 	}
