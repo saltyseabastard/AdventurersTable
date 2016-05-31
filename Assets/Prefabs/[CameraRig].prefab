@@ -3107,7 +3107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointerToggleButton: 3
   grabToggleButton: 0
-  useToggleButton: 1
+  useToggleButton: 3
   menuToggleButton: 4
   axisFidelity: 1
   triggerPressed: 0
