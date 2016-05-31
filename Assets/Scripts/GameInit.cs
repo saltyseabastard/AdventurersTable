@@ -37,7 +37,7 @@ public class GameInit : MonoBehaviour {
                 break;
         }
 
-
+        Debug.Log("VR Status: " + vrStatus);
     }
 
 }

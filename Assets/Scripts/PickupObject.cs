@@ -33,7 +33,8 @@ public class PickupObject : MonoBehaviour
         //Setup controller event listeners
         GetComponent<SteamVR_ControllerEvents>().TriggerClicked += new ControllerClickedEventHandler(DoTriggerClicked);
         GetComponent<SteamVR_ControllerEvents>().TriggerUnclicked += new ControllerClickedEventHandler(DoTriggerUnclicked);
-    
+
+        blackHole.SetActive(false);
     }
 
     void DoTriggerClicked(object sender, ControllerClickedEventArgs e)
@@ -57,33 +58,38 @@ public class PickupObject : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		//ray stuff
-		Vector3 rayVector = new Vector3 (x, y, 0);
+        //for non VR version
+        if (GameInit.vrStatus == GameInit.VRStatus.None)
+        {
+            //ray stuff
+            Vector3 rayVector = new Vector3(x, y, 0);
 
-		Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(rayVector);
-		RaycastHit hit;
+            Ray ray = mainCamera.GetComponent<Camera>().ScreenPointToRay(rayVector);
+            RaycastHit hit;
 
-		if (Physics.Raycast (ray, out hit)) {
-			hitObject = hit.collider.gameObject;
-			SendMessageTo (previousObject, "OnRaycastExit");
-			SendMessageTo (hitObject, "OnRaycastEnter");
-			previousObject = hitObject;
-		}
-        else 
-		{
-			SendMessageTo (previousObject, "OnRaycastExit");
-			previousObject = null;
-		}
+            if (Physics.Raycast(ray, out hit))
+            {
+                hitObject = hit.collider.gameObject;
+                SendMessageTo(previousObject, "OnRaycastExit");
+                SendMessageTo(hitObject, "OnRaycastEnter");
+                previousObject = hitObject;
+            }
+            else
+            {
+                SendMessageTo(previousObject, "OnRaycastExit");
+                previousObject = null;
+            }
 
-		if(carrying) 
-		{
-			carry (carriedObjects);
-			checkDrop();
-		}
-	 	else 
-		{
-			pickup();
-		}
+            if (carrying)
+            {
+                carry(carriedObjects);
+                checkDrop();
+            }
+            else
+            {
+                pickup();
+            }
+        }
 	}
 
 	void SendMessageTo(GameObject target, string message)
@@ -173,6 +179,7 @@ public class PickupObject : MonoBehaviour
 		if(p != null) {
 			carrying = true;
 			carriedObjects.Add(p.gameObject);
+            blackHole.SetActive(true);
 			p.gameObject.GetComponent<Rigidbody>().useGravity = false;
 		}
 	}
