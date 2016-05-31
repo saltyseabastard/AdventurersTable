@@ -4431,4 +4431,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13fd89378b36840a7a61ee05c91781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedMaterial: {fileID: 0}
+  selectedMaterial: {fileID: 2100000, guid: c426e303fd02e4c8e962f186c8767db5, type: 2}

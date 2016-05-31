@@ -7,24 +7,31 @@ public class NetworkedPlayerScript : NetworkBehaviour
     public Camera fpsCamera;
     public AudioListener audioListener;
     public PickupObject pickupScript;
+    public Palette paletteScript;
+    //public Transform viveCameraRig;
+    //Transform playerController;
     //public ShootingScript shootingScript;
     //public GunMaterialSwitcher gunMaterialSwitcher;
 
-    Renderer[] renderers;
+    //Renderer[] renderers;
 
     void Start()
     {
-        renderers = GetComponentsInChildren<Renderer>();
+        //renderers = GetComponentsInChildren<Renderer>();
     }
 
     public override void OnStartLocalPlayer()
     {
-        fpsController.enabled = true;
-        fpsCamera.enabled = true;
-        audioListener.enabled = true;
-        pickupScript.enabled = true;
-        //shootingScript.enabled = true;
-        //gunMaterialSwitcher.SwitchMaterial(true);
+        if (GameInit.vrStatus == GameInit.VRStatus.None)
+        {
+            fpsController.enabled = true;
+            fpsCamera.enabled = true;
+            audioListener.enabled = true;
+            pickupScript.enabled = true;
+            paletteScript.enabled = true;
+            //shootingScript.enabled = true;
+            //gunMaterialSwitcher.SwitchMaterial(true);
+        }
 
         gameObject.name = "LOCAL Player";
         base.OnStartLocalPlayer();
