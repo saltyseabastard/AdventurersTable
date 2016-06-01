@@ -175,7 +175,7 @@ public abstract class SteamVR_WorldPointer : MonoBehaviour {
 
     protected virtual void EnablePointerBeam(object sender, ControllerClickedEventArgs e)
     {
-        if (!isActive && activateDelayTimer <= 0)
+        if (!isActive && activateDelayTimer <= 0 && GetComponent<SteamVR_InteractTouch>().GetTouchedObject() == null)
         {
             setPlayAreaCursorCollision(false);
             controllerIndex = e.controllerIndex;

@@ -156,5 +156,6 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
     {
         pointer.SetActive(toggle);
         pointerTip.SetActive(toggle);
+        enableTeleport = toggle;
     }
 }

@@ -5067,7 +5067,7 @@ MonoBehaviour:
   pointerHitColor: {r: 0.76221883, g: 0.97794116, b: 0.97794116, a: 1}
   pointerMissColor: {r: 0.53676474, g: 0.53676474, b: 0.53676474, a: 0.441}
   showPlayAreaCursor: 1
-  playAreaCursorDimensions: {x: 0.75, y: 0.75}
+  playAreaCursorDimensions: {x: 0.33, y: 0.33}
   handlePlayAreaCursorCollisions: 1
   enableTeleport: 1
   beamAlwaysOn: 1
