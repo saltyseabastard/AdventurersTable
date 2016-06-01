@@ -249,7 +249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &403400
 Transform:
   m_ObjectHideFlags: 1
@@ -1352,6 +1352,7 @@ MonoBehaviour:
   fpsCamera: {fileID: 2011938}
   audioListener: {fileID: 8117568}
   pickupScript: {fileID: 11410424}
+  paletteScript: {fileID: 0}
 --- !u!135 &13543080
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -1374,7 +1375,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 1.5
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
