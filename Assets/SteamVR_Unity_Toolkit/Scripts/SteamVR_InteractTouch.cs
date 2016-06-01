@@ -93,6 +93,10 @@ public class SteamVR_InteractTouch : MonoBehaviour {
             {
                 Invoke("HideController", hideControllerDelay);
             }
+
+            //disable pointer
+            gameObject.GetComponent<SteamVR_SimplePointer>().TogglePointerBeam(false);
+            gameObject.GetComponent<SteamVR_SimplePointer>().enabled = false;
         }
     }
 
@@ -109,6 +113,10 @@ public class SteamVR_InteractTouch : MonoBehaviour {
         {
             controllerActions.ToggleControllerModel(true);
         }
+
+        //enable pointer
+        gameObject.GetComponent<SteamVR_SimplePointer>().enabled = true;
+        gameObject.GetComponent<SteamVR_SimplePointer>().TogglePointerBeam(true);
     }
 
     private void HideController()

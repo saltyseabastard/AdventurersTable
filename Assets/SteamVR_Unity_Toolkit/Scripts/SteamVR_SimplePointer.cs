@@ -44,13 +44,6 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
             RaycastHit pointerCollidedWith;
             bool rayHit = Physics.Raycast(pointerRaycast, out pointerCollidedWith, Mathf.Infinity, layerMask);
 
-            //show the play area only if it's colliding with the floor, not the UI
-            //if (pointerCollidedWith.collider.gameObject != null)
-            //{
-            //    bool shouldShowPlayAreaCursor = !pointerCollidedWith.collider.gameObject.tag.Equals("UI");
-            //    playAreaCursor.GetComponent<Renderer>().enabled = shouldShowPlayAreaCursor;
-            //}
-
             float pointerBeamLength = GetPointerBeamLength(rayHit, pointerCollidedWith);        
             SetPointerTransform(pointerBeamLength, pointerThickness);
         }
@@ -157,5 +150,11 @@ public class SteamVR_SimplePointer : SteamVR_WorldPointer
         }
 
         return actualLength;
+    }
+
+    public void TogglePointerBeam(bool toggle)
+    {
+        pointer.SetActive(toggle);
+        pointerTip.SetActive(toggle);
     }
 }
