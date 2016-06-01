@@ -26,6 +26,7 @@ public class Palette : MonoBehaviour {
     private UnityAction buttonListener;
     private DiceSpawnEvent mDiceSpawnEvent;
     private EnvLoadEvent mEnvLoadEvent;
+    private Rigidbody rb;
 
     [System.Serializable]
     public class DiceSpawnEvent : UnityEvent<DiceSides>
@@ -60,6 +61,11 @@ public class Palette : MonoBehaviour {
     void SpawnSingleDie(DiceSides sides)
     {
         GameObject die = (GameObject)Instantiate(dicePrefabs[(int)sides], transform.position, transform.rotation);
+        if (GameInit.vrStatus == GameInit.VRStatus.None)
+        {
+            rb = die.GetComponent<Rigidbody>();
+            rb.mass = 1f;
+        }
         pickupObject.AddObjectToHand(die);
     }
 
