@@ -22,16 +22,13 @@ public class NetworkedPlayerScript : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        if (GameInit.vrStatus == GameInit.VRStatus.None)
-        {
-            fpsController.enabled = true;
-            fpsCamera.enabled = true;
-            audioListener.enabled = true;
-            pickupScript.enabled = true;
-            paletteScript.enabled = true;
-            //shootingScript.enabled = true;
-            //gunMaterialSwitcher.SwitchMaterial(true);
-        }
+        fpsController.enabled = true;
+        fpsCamera.enabled = true;
+        audioListener.enabled = true;
+        pickupScript.enabled = true;
+        paletteScript.enabled = true;
+        //shootingScript.enabled = true;
+        //gunMaterialSwitcher.SwitchMaterial(true);
 
         gameObject.name = "LOCAL Player";
         base.OnStartLocalPlayer();

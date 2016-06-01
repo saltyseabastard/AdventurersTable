@@ -5,6 +5,8 @@ public class CustomNetworkManager : NetworkManager
 {
     [SerializeField]
     private GameObject sceneCamera;
+    public GameObject fpsPrefab;
+    public GameObject vivePrefab;
 
     public override void OnStartClient(NetworkClient client)
     {
@@ -15,6 +17,21 @@ public class CustomNetworkManager : NetworkManager
     {
         HideSceneCamera();
     }
+
+    public override void OnClientConnect(NetworkConnection conn)
+    {       
+        if (GameInit.vrStatus == GameInit.VRStatus.None)
+        {
+            playerPrefab = fpsPrefab;
+        }
+        else if (GameInit.vrStatus == GameInit.VRStatus.Vive)
+        {
+            playerPrefab = vivePrefab;
+
+        }
+        base.OnClientConnect(conn);
+    }
+
 
     public override void OnStopClient()
     {
