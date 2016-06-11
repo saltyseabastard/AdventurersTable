@@ -3,23 +3,34 @@ using System.Collections;
 
 public class Pickupable : MonoBehaviour {
 
-	Renderer renderer;
+	Renderer rnd;
+    Rigidbody rb;
 	Material originalMaterial;
 	public Material selectedMaterial;
 
 	void Start()
 	{
-		renderer = gameObject.GetComponent<Renderer> ();
-		originalMaterial = renderer.material;
+		rnd = GetComponent<Renderer> ();
+        rb = GetComponent<Rigidbody>();
+
+        if (rnd)
+            originalMaterial = rnd.material;
 	}
 
 	void OnRaycastEnter(GameObject sender)
 	{
-		renderer.material = selectedMaterial;
+        if (rnd)
+		    rnd.material = selectedMaterial;
 	}
 
 	void OnRaycastExit(GameObject sender)
 	{
-		renderer.material = originalMaterial;
+        if (rnd)
+		    rnd.material = originalMaterial;
 	}
+
+    void Update()
+    {
+        rb.isKinematic = rb.IsSleeping();
+    }
 }
