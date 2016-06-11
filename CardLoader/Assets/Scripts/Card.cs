@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Card : MonoBehaviour
 {
     public CardFace front;
     public CardFace back;
-    public CardSide left;
-    public CardSide right;
-    public CardSide bottom;
-    public CardSide top;
+    public List<CardSide> sides;
 
 	// Use this for initialization
 	void Start () {
@@ -28,5 +26,13 @@ public class Card : MonoBehaviour
     public void UpdateBack(Texture2D newImage)
     {
         back.UpdateImage (newImage);
+    }
+
+    public void SetSides(Color sideColor)
+    {
+        foreach (var side in sides)
+        {
+            side.UpdateSideColor (sideColor);
+        }
     }
 }

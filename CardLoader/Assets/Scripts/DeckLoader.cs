@@ -8,7 +8,7 @@ using System.Linq;
 
 public class DeckLoader : MonoBehaviour
 {
-    public GameObject cardDeckPrefab = null;
+    public GameObject roundedCardPrefab = null;
 
     private GameObject cardObj = null;
     private GameObject deckObj = null;
@@ -19,6 +19,8 @@ public class DeckLoader : MonoBehaviour
     private List<Deck> decks = new List<Deck>();
 
     private Deck activeDeck;
+
+    private Color defaultCardSideColor = Color.black;
 
 	// Use this for initialization
 	void Start ()
@@ -72,10 +74,11 @@ public class DeckLoader : MonoBehaviour
 
     void CreateDeck()
     {
-        cardObj = (GameObject)Instantiate (cardDeckPrefab, new Vector3 (0, 2, 0), Quaternion.identity);
+        cardObj = (GameObject)Instantiate (roundedCardPrefab, new Vector3 (0, 2, 0), Quaternion.identity);
         //created.SetActive (false);
         // rotate x -90 to face camera
-        cardObj.transform.Rotate(90, 0, 180);
+        cardObj.transform.Rotate(-90, 0, 0);
+        ApplyOtherTextures ();
         DrawNextCard ();
         deckCreated = true;
     }
@@ -84,6 +87,12 @@ public class DeckLoader : MonoBehaviour
     {
         var card = cardObj.GetComponent<Card> ();
         card.UpdateFront (activeDeck.GetNextCard ());
+    }
+
+    void ApplyOtherTextures()
+    {
+        var card = cardObj.GetComponent<Card> ();
         card.UpdateBack(activeDeck.GetCardBack());
+        card.SetSides (defaultCardSideColor);
     }
 }

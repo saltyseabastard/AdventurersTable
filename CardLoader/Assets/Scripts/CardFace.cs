@@ -15,7 +15,11 @@ public class CardFace : MonoBehaviour {
 
     public void UpdateImage(Texture2D newImage)
     {
-        var objRenderer = GetComponent<Renderer>();
-        objRenderer.material.mainTexture = newImage;
+        GetComponent<Renderer>().material.mainTexture = newImage;
+    }
+
+    public void UpdateSideColor(Color newColor)
+    {
+        GetComponent<Renderer> ().material.color = newColor;
     }
 }
